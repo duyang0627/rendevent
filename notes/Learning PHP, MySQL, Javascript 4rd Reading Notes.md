@@ -12,7 +12,7 @@
 
 ## Chapter 1 Introduction
 
-![image](https://raw.githubusercontent.com/duyang0627/duyang0627.github.io/master/images/General%20flowchart.png)
+![image](./FlowChart.png)
 
 **PHP**: for backend use. Achieve dynamic webpage by generating html specific to user request.
 
