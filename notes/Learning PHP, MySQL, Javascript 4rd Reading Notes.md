@@ -1,4 +1,16 @@
-### Chapter 1 Introduction
+# Table of Contents
+- [Chapter 1 Introduction](#chapter-1-introduction)
+- [Chapter 2 Setting up environment](#chapter-2-setting-up-environment)
+- [Chapter 3 Introduction to PHP](#chapter-3-introduction-to-php)
+- [Chapter 4 Expressions and Control Flow](#chapter-4-expressions-and-control-flow)
+- [Chapter 5 Functions and Objects](#chapter-5-functions-and-objects)
+- [Chapter 6 Arrays](#chapter-6-arrays)
+- [Chapter 7 Practical PHP](#chapter-7-practical-php)
+- [Chapter 8 Introduction to MySQL](#chapter-8-introduction-to-mysql)
+- [Chapter 9 Mastering MySQL](#chapter-9-mastering-mysql)
+- [Chapter 10 Access MySQL using PHP](#chapter-10-access-mysql-using-php)
+
+## Chapter 1 Introduction
 
 ![image](https://raw.githubusercontent.com/duyang0627/duyang0627.github.io/master/images/General%20flowchart.png)
 
@@ -12,11 +24,11 @@
 
 **HTML5**: Basic component of a webpage.
 
-### Chapter 2 Setting up environment
+## Chapter 2 Setting up environment
 
 XAMPP is a bundle of Apache(web server), PHP, MariaDB(a fork of MySQL)
 
-### Chapter 3 Introduction to PHP
+## Chapter 3 Introduction to PHP
 ```php
 <?php
     echo "Hello"."World!";
@@ -74,7 +86,7 @@ There are superglobal variables, e.g. **$_SERVER**.
 Using the ++**htmlentities**++ function for sanitization is an important practice in any circumstance where user or other third-party data is being processed for output, not just with superglobals.
 
 ----
-### Chapter 4 Expressions and Control Flow
+## Chapter 4 Expressions and Control Flow
 
 PHP define TRUE as 1, FALSE as NULL.
 
@@ -90,7 +102,7 @@ for, while loop;
 ```
 
 ---
-### Chapter 5 Functions and Objects
+## Chapter 5 Functions and Objects
 
 The ***phpinfo*** function is extremely useful for obtaining informa‐
 tion about your current PHP installation, but that information
@@ -210,7 +222,7 @@ class Translate
 ***parent::__construct()*** calls the constructor of parent;
 
 ---
-### Chapter 6 Arrays
+## Chapter 6 Arrays
 
 Add items to an array:
 ```php
@@ -285,7 +297,7 @@ The ***list*** function takes an array as its argument (in this case, the key/va
 - ***reset($a)***: reset the iterator in *foreach* or *each*
 - ***end($a)***: move the iterator to the end
 
-### Chapter 7 Practical PHP
+## Chapter 7 Practical PHP
 
 **printf, sprintf**
 
@@ -356,7 +368,7 @@ else
 ```
 function ***htmlspecialchars*** turn any special characters into the way html understands.
 
-### Chapter 8 Introduction to MySQL
+## Chapter 8 Introduction to MySQL
 
 MySQL CLI(Command Line Interface):
 
@@ -468,7 +480,7 @@ ALTER TABLE classics ADD FULLTEXT(author, title);
 - Only available on MyISAM engine;
 - Faster to **first** load data, then add FULLTEXT index
 
-#### NOTE : tweak index to increase DB performance
+**NOTE : tweak index to increase DB performance**
 
 **SQL query Commands**
 ```sql
@@ -614,6 +626,8 @@ Connect and Send a query to mysql server:
 ?>
 ```
 
+No need to put semicolon; after SQL query for PHP
+
 Fetch one row at a time:
 ```php
 <?php
@@ -711,3 +725,22 @@ characters that a hacker may have inserted.
 HTTP request: GET vs POST
 - GET: data are sent through URL, only ASCII letters  
 - POST: data is sent in HTTP message body, no restrictions are data type.
+
+Table in HTML:
+```html
+    <table>
+        <tr> <th>head1</th> <th>head2</th> ... </tr>
+        <tr> <td>desc1</td> <td>desc2</td> ... </tr>
+        ...
+    </table>        
+```
+
+Display the auto-increment id(The first value of a row is an auto_increment field)
+```php
+<?php
+$query = "INSERT INTO cats VALUES(NULL, 'Lynx', 'Stumpy', 5)";
+$result = $conn->query($query);
+if (!$result) die ("Database access failed: " . $conn->error);
+echo "The Insert ID was: " . $result->insert_id;
+?>
+```
