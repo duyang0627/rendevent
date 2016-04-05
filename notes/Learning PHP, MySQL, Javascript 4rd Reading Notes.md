@@ -11,8 +11,9 @@
 - [Chapter 10 Access MySQL using PHP](#chapter-10-access-mysql-using-php)
 
 ## Chapter 1 Introduction
+![image](https://github.com/duyang0627/rendevent/raw/master/notes/General%20flowchart.png)
+![image](./流程图.jpg)
 
-![image](https://raw.githubusercontent.com/duyang0627/duyang0627.github.io/master/images/General%20flowchart.png)
 
 **PHP**: for backend use. Achieve dynamic webpage by generating html specific to user request.
 
@@ -27,6 +28,9 @@
 ## Chapter 2 Setting up environment
 
 XAMPP is a bundle of Apache(web server), PHP, MariaDB(a fork of MySQL)
+
+After installation, start xampp and check if we can access http://localhost
+from browser. The root document folder (`localhost/`) is in `xampp/htdocs`
 
 ## Chapter 3 Introduction to PHP
 ```php
