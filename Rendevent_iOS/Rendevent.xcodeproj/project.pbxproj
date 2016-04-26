@@ -22,6 +22,9 @@
 		9DF3B71D1CCF0BE000DFCF5C /* MySearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3B71C1CCF0BE000DFCF5C /* MySearchResultController.m */; };
 		9DF3B7221CCF34B700DFCF5C /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3B7211CCF34B700DFCF5C /* Event.m */; };
 		9DF3B7251CCF362A00DFCF5C /* EventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3B7241CCF362A00DFCF5C /* EventCell.m */; };
+		9DF3B7281CCFF0EA00DFCF5C /* MyEventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3B7271CCFF0EA00DFCF5C /* MyEventsViewController.m */; };
+		9DF3B72C1CCFF74D00DFCF5C /* MyEventsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3B72B1CCFF74D00DFCF5C /* MyEventsListTableViewController.m */; };
+		9DF3B72F1CCFFBA200DFCF5C /* MyEventsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3B72E1CCFFBA200DFCF5C /* MyEventsCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,12 @@
 		9DF3B7211CCF34B700DFCF5C /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		9DF3B7231CCF362A00DFCF5C /* EventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCell.h; sourceTree = "<group>"; };
 		9DF3B7241CCF362A00DFCF5C /* EventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCell.m; sourceTree = "<group>"; };
+		9DF3B7261CCFF0EA00DFCF5C /* MyEventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsViewController.h; sourceTree = "<group>"; };
+		9DF3B7271CCFF0EA00DFCF5C /* MyEventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsViewController.m; sourceTree = "<group>"; };
+		9DF3B72A1CCFF74D00DFCF5C /* MyEventsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsListTableViewController.h; sourceTree = "<group>"; };
+		9DF3B72B1CCFF74D00DFCF5C /* MyEventsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsListTableViewController.m; sourceTree = "<group>"; };
+		9DF3B72D1CCFFBA200DFCF5C /* MyEventsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyEventsCell.h; sourceTree = "<group>"; };
+		9DF3B72E1CCFFBA200DFCF5C /* MyEventsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyEventsCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +95,7 @@
 		9DEADF681CCEC5F1009FB7DF /* Rendevent */ = {
 			isa = PBXGroup;
 			children = (
+				9DF3B7301CCFFE5600DFCF5C /* Model */,
 				9DF3B7061CCEE73D00DFCF5C /* CarbonKit */,
 				9DEADF6C1CCEC5F1009FB7DF /* AppDelegate.h */,
 				9DEADF6D1CCEC5F1009FB7DF /* AppDelegate.m */,
@@ -97,6 +107,7 @@
 				9DEADF7A1CCEC5F1009FB7DF /* Info.plist */,
 				9DEADF691CCEC5F1009FB7DF /* Supporting Files */,
 				9DF3B71A1CCEE82B00DFCF5C /* Events */,
+				9DF3B7291CCFF0EF00DFCF5C /* MyEvents */,
 			);
 			path = Rendevent;
 			sourceTree = "<group>";
@@ -134,12 +145,32 @@
 				9DF3B7151CCEE77C00DFCF5C /* EventsViewController.m */,
 				9DF3B7171CCEE81F00DFCF5C /* RecomEventsController.h */,
 				9DF3B7181CCEE81F00DFCF5C /* RecomEventsController.m */,
-				9DF3B7201CCF34B700DFCF5C /* Event.h */,
-				9DF3B7211CCF34B700DFCF5C /* Event.m */,
 				9DF3B7231CCF362A00DFCF5C /* EventCell.h */,
 				9DF3B7241CCF362A00DFCF5C /* EventCell.m */,
 			);
 			name = Events;
+			sourceTree = "<group>";
+		};
+		9DF3B7291CCFF0EF00DFCF5C /* MyEvents */ = {
+			isa = PBXGroup;
+			children = (
+				9DF3B7261CCFF0EA00DFCF5C /* MyEventsViewController.h */,
+				9DF3B7271CCFF0EA00DFCF5C /* MyEventsViewController.m */,
+				9DF3B72A1CCFF74D00DFCF5C /* MyEventsListTableViewController.h */,
+				9DF3B72B1CCFF74D00DFCF5C /* MyEventsListTableViewController.m */,
+				9DF3B72D1CCFFBA200DFCF5C /* MyEventsCell.h */,
+				9DF3B72E1CCFFBA200DFCF5C /* MyEventsCell.m */,
+			);
+			name = MyEvents;
+			sourceTree = "<group>";
+		};
+		9DF3B7301CCFFE5600DFCF5C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9DF3B7201CCF34B700DFCF5C /* Event.h */,
+				9DF3B7211CCF34B700DFCF5C /* Event.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,10 +245,13 @@
 			files = (
 				9DF3B7221CCF34B700DFCF5C /* Event.m in Sources */,
 				9DF3B71D1CCF0BE000DFCF5C /* MySearchResultController.m in Sources */,
+				9DF3B72C1CCFF74D00DFCF5C /* MyEventsListTableViewController.m in Sources */,
 				9DF3B7111CCEE73D00DFCF5C /* CarbonTabSwipeNavigation.m in Sources */,
 				9DF3B7121CCEE73D00DFCF5C /* CarbonTabSwipeScrollView.m in Sources */,
 				9DF3B7251CCF362A00DFCF5C /* EventCell.m in Sources */,
 				9DEADF711CCEC5F1009FB7DF /* ViewController.m in Sources */,
+				9DF3B72F1CCFFBA200DFCF5C /* MyEventsCell.m in Sources */,
+				9DF3B7281CCFF0EA00DFCF5C /* MyEventsViewController.m in Sources */,
 				9DF3B7191CCEE81F00DFCF5C /* RecomEventsController.m in Sources */,
 				9DEADF6E1CCEC5F1009FB7DF /* AppDelegate.m in Sources */,
 				9DEADF6B1CCEC5F1009FB7DF /* main.m in Sources */,

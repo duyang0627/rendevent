@@ -7,9 +7,9 @@
 //
 
 #import "EventsViewController.h"
-#include "RecomEventsController.h"
-#include "CarbonKit.h"
-#include "MySearchResultController.h"
+#import "RecomEventsController.h"
+#import "CarbonKit.h"
+#import "MySearchResultController.h"
 
 @interface EventsViewController () <CarbonTabSwipeNavigationDelegate>
 {
@@ -77,9 +77,11 @@
     carbonTabSwipeNavigation.toolbar.translucent = NO;
     [carbonTabSwipeNavigation setIndicatorColor:color];
     [carbonTabSwipeNavigation setTabExtraWidth:30];
-    [carbonTabSwipeNavigation.carbonSegmentedControl setWidth:80 forSegmentAtIndex:0];
-    [carbonTabSwipeNavigation.carbonSegmentedControl setWidth:80 forSegmentAtIndex:1];
-    [carbonTabSwipeNavigation.carbonSegmentedControl setWidth:80 forSegmentAtIndex:2];
+    CGRect rect = [[UIScreen mainScreen] bounds];
+    NSUInteger width = rect.size.width/3;
+    [carbonTabSwipeNavigation.carbonSegmentedControl setWidth:width forSegmentAtIndex:0];
+    [carbonTabSwipeNavigation.carbonSegmentedControl setWidth:width forSegmentAtIndex:1];
+    [carbonTabSwipeNavigation.carbonSegmentedControl setWidth:width forSegmentAtIndex:2];
     
     // Custimize segmented control
     [carbonTabSwipeNavigation setNormalColor:[color colorWithAlphaComponent:0.6]
@@ -107,7 +109,7 @@
 // optional
 - (void)carbonTabSwipeNavigation:(nonnull CarbonTabSwipeNavigation *)carbonTabSwipeNavigation
                  willMoveAtIndex:(NSUInteger)index {
-    self.title = items[index];
+//    self.title = items[index];
     NSLog(@"Will move at index: %ld", index);
 }
 

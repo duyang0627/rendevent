@@ -38,6 +38,10 @@
     // If your ViewController extends to UIViewController
     // else see below
     [self.view addSubview:refresh];
+//    CGRect sizeb = self.tableView.frame;
+//    
+//    self.tableView.frame = [[UIScreen mainScreen] bounds];
+//    self.tableView.backgroundColor = [UIColor greenColor];
     
     [refresh addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     
@@ -79,7 +83,6 @@
     NSString *destDateString = [dateFormatter stringFromDate:date];
 //    [dateFormatter release];
     return destDateString;
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
