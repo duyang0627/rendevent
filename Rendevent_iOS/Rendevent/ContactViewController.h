@@ -10,6 +10,9 @@
 #import "ChineseSorting/ChineseString.h"
 
 @interface ContactViewController : UITableViewController
+{
+    UIColor *color;
+}
 @property(nonatomic,strong)NSMutableArray *indexArray;
 @property(nonatomic,strong)NSMutableArray *letterResultArr;
 @end

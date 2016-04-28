@@ -30,7 +30,7 @@
 }
 - (void)style {
     
-    UIColor *color = [UIColor colorWithRed:24.0/255 green:75.0/255 blue:152.0/255 alpha:1];
+    color = [UIColor colorWithRed:24.0/255 green:75.0/255 blue:152.0/255 alpha:1];
     //    self.navigationItem.titleView = self.searc
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -73,6 +73,7 @@
     }
     
     cell.textLabel.text = [[self.letterResultArr objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+    cell.textLabel.textColor = color;
     return cell;
 }
 
@@ -86,7 +87,7 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
-    lab.backgroundColor = [UIColor grayColor];
+    lab.backgroundColor = [UIColor colorWithRed:24.0/255 green:75.0/255 blue:152.0/255 alpha:0.2];
     lab.text = [self.indexArray objectAtIndex:section];
     lab.textColor = [UIColor whiteColor];
     return lab;
