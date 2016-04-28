@@ -280,7 +280,7 @@
         <!--Contacts-->
         <scene sceneID="vW2-Lv-SfS">
             <objects>
-                <tableViewController title="Contacts" id="dlD-ht-ZUU" sceneMemberID="viewController">
+                <tableViewController title="Contacts" id="dlD-ht-ZUU" customClass="ContactViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wi0-vC-N0x">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
