@@ -32,11 +32,11 @@
     searchBar = [[UISearchBar alloc] init];
     searchBar.showsCancelButton = YES;
     searchBar.showsSearchResultsButton = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
-    [self.view addGestureRecognizer:tap];
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+//                                   initWithTarget:self
+//                                   action:@selector(dismissKeyboard)];
+//    
+//    [self.view addGestureRecognizer:tap];
 //    resultController = [[MySearchResultController alloc] init];
 //    searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
 //    self.searchController.searchResultsUpdater = self;

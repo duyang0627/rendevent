@@ -13,10 +13,14 @@
 
 @interface RecomEventsController ()
 {
-    CarbonSwipeRefresh *refresh;
+//    CarbonSwipeRefresh *refresh;
     NSMutableArray *eventsList;
     NSMutableArray *cureventsList;
     int currentCategoryIndex;
+    
+//    NSMutableArray *cellStatus;
+    BOOL isOpen;
+    NSIndexPath *selectIndex;
 }
 @end
 
@@ -26,24 +30,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.delegate=self;
+    self.tableView.dataSource=self;
     
-    refresh = [[CarbonSwipeRefresh alloc] initWithScrollView:self.tableView];
-    [refresh setColors:@[
-                         [UIColor blueColor],
-                         [UIColor redColor],
-                         [UIColor orangeColor],
-                         [UIColor greenColor]]
-     ]; // default tintColor
+    isOpen = YES;
+    
+//    refresh = [[CarbonSwipeRefresh alloc] initWithScrollView:self.tableView];
+//    [refresh setColors:@[
+//                         [UIColor blueColor],
+//                         [UIColor redColor],
+//                         [UIColor orangeColor],
+//                         [UIColor greenColor]]
+//     ]; // default tintColor
     
     // If your ViewController extends to UIViewController
     // else see below
-    [self.view addSubview:refresh];
+//    [self.view addSubview:refresh];
 //    CGRect sizeb = self.tableView.frame;
 //    
 //    self.tableView.frame = [[UIScreen mainScreen] bounds];
 //    self.tableView.backgroundColor = [UIColor greenColor];
     
-    [refresh addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+//    [refresh addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     
     self.tableView.tableHeaderView = CatigoriesSegs;
     
@@ -63,6 +71,12 @@
     [eventsList addObject:football];
     
     cureventsList = [self filteringEventList:eventsList withCategory:currentCategoryIndex];
+    
+//    //initialize cell extendable statue array
+//    cellStatus = [[NSMutableArray alloc] init];
+//    for (int i = 0; [cureventsList count]; i++) {
+//        [cellStatus addObject:[NSNumber numberWithBool:NO]];
+//    }
 }
 
 -(NSMutableArray *)filteringEventList:(NSMutableArray*)eventList withCategory:(int)caIndex
@@ -97,25 +111,79 @@
     return [cureventsList count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (selectIndex.row == indexPath.row && selectIndex!=nil) {
+        if (isOpen) {
+            return 180;
+        }
+        return 100;
+    }
+    return 100;
+    
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    EventCell *cell = (EventCell * )[tableView dequeueReusableCellWithIdentifier:@"EventCell"];
+    EventCell *cell;
     Event *event = [cureventsList objectAtIndex:indexPath.row];
-    cell.titleLabel.text = event.name;
-    cell.startLabel.text = [self stringFromDate:event.startTime];
-    cell.endLabel.text = [self stringFromDate:event.endTime];
-    
+    if(selectIndex.row == indexPath.row  && selectIndex != nil){
+        if(isOpen){
+            cell = (EventCell * )[tableView dequeueReusableCellWithIdentifier:@"EventCellDetail"];
+            cell.titleLabel.text = event.name;
+            cell.startLabel.text = [self stringFromDate:event.startTime];
+            cell.endLabel.text = [self stringFromDate:event.endTime];
+        }
+        else{
+            cell = (EventCell * )[tableView dequeueReusableCellWithIdentifier:@"EventCell"];
+            cell.titleLabel.text = event.name;
+            cell.startLabel.text = [self stringFromDate:event.startTime];
+            cell.endLabel.text = [self stringFromDate:event.endTime];
+        }
+    }else{
+        cell = (EventCell * )[tableView dequeueReusableCellWithIdentifier:@"EventCell"];
+        cell.titleLabel.text = event.name;
+        cell.startLabel.text = [self stringFromDate:event.startTime];
+        cell.endLabel.text = [self stringFromDate:event.endTime];
+    }
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    //更改选中cell的状态 用以 刷新页面是进行折叠和展开
+    
+    NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
+//    NSNumber *nNum = [cellStatus objectAtIndex:indexPath.row];
+//    BOOL ifOpen = ![nNum boolValue];
+//    nNum = [NSNumber numberWithBool:ifOpen];
+//    if (ifOpen) {
+//        [tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationTop];
+//    }else{
+//        [tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationBottom];
+//    }
+    if (selectIndex!=nil &&indexPath.row ==selectIndex.row) {
+        isOpen = !isOpen;
+    }else if (selectIndex!=nil && indexPath.row!=selectIndex.row) {
+        indexPaths = [NSArray arrayWithObjects:indexPath,selectIndex, nil];
+        isOpen=YES;
+    }
+    selectIndex=indexPath;
+    //刷新
+    [tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (IBAction)didSegmentChanged:(id)sender {
     currentCategoryIndex = [sender selectedSegmentIndex];
     cureventsList = [self filteringEventList:eventsList withCategory:currentCategoryIndex];
+//    cellStatus = [[NSMutableArray alloc] init];
+//    for (int i = 0; [cureventsList count]; i++) {
+//        [cellStatus addObject:[NSNumber numberWithBool:NO]];
+//    }
+    
     [self.tableView reloadData];
 }
 
-- (void)refresh:(id)sender {
-    [refresh endRefreshing];
-}
+//- (void)refresh:(id)sender {
+//    [refresh endRefreshing];
+//}
 
 @end

@@ -10,10 +10,10 @@
 
 @implementation EventCell
 
--(void)layoutSubviews {
-    [super layoutSubviews];
-    CGRect rect = [[UIScreen mainScreen] bounds];
-    self.backgroundView.frame = CGRectMake(0, 0, rect.size.width, 100);
-    self.selectedBackgroundView.frame = CGRectMake(0, 0, rect.size.width, 100);
-}
+//-(void)layoutSubviews {
+//    [super layoutSubviews];
+//    CGRect rect = [[UIScreen mainScreen] bounds];
+//    self.backgroundView.frame = CGRectMake(0, 0, rect.size.width, 100);
+//    self.selectedBackgroundView.frame = CGRectMake(0, 0, rect.size.width, 100);
+//}
 @end

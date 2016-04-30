@@ -28,6 +28,7 @@
 		9DF3B7331CD1E31A00DFCF5C /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3B7321CD1E31A00DFCF5C /* ContactViewController.m */; };
 		9DF3B73A1CD1E36D00DFCF5C /* ChineseString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3B7371CD1E36D00DFCF5C /* ChineseString.m */; };
 		9DF3B73B1CD1E36D00DFCF5C /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3B7381CD1E36D00DFCF5C /* pinyin.c */; };
+		9DF3B73E1CD53A1300DFCF5C /* EventCellDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3B73D1CD53A1300DFCF5C /* EventCellDetail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,8 @@
 		9DF3B7371CD1E36D00DFCF5C /* ChineseString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseString.m; sourceTree = "<group>"; };
 		9DF3B7381CD1E36D00DFCF5C /* pinyin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
 		9DF3B7391CD1E36D00DFCF5C /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
+		9DF3B73C1CD53A1300DFCF5C /* EventCellDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventCellDetail.h; sourceTree = "<group>"; };
+		9DF3B73D1CD53A1300DFCF5C /* EventCellDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventCellDetail.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +161,8 @@
 				9DF3B7181CCEE81F00DFCF5C /* RecomEventsController.m */,
 				9DF3B7231CCF362A00DFCF5C /* EventCell.h */,
 				9DF3B7241CCF362A00DFCF5C /* EventCell.m */,
+				9DF3B73C1CD53A1300DFCF5C /* EventCellDetail.h */,
+				9DF3B73D1CD53A1300DFCF5C /* EventCellDetail.m */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				9DF3B72F1CCFFBA200DFCF5C /* MyEventsCell.m in Sources */,
 				9DF3B7281CCFF0EA00DFCF5C /* MyEventsViewController.m in Sources */,
 				9DF3B7191CCEE81F00DFCF5C /* RecomEventsController.m in Sources */,
+				9DF3B73E1CD53A1300DFCF5C /* EventCellDetail.m in Sources */,
 				9DEADF6E1CCEC5F1009FB7DF /* AppDelegate.m in Sources */,
 				9DEADF6B1CCEC5F1009FB7DF /* main.m in Sources */,
 				9DF3B7161CCEE77C00DFCF5C /* EventsViewController.m in Sources */,

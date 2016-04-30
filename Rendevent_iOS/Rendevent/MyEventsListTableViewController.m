@@ -49,4 +49,8 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"did select %ld", indexPath.row);
+}
+
 @end
