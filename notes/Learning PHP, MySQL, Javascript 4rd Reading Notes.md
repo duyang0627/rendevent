@@ -18,7 +18,7 @@
 <!-- /TOC -->
 
 ## Chapter 1 Introduction
-![image](general flowchart.png)
+![image](./General\ flowchart.png)
 
 **PHP**: for backend use. Achieve dynamic webpage by generating html specific to user request.
 
