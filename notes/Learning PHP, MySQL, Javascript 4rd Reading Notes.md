@@ -1,19 +1,24 @@
 # Table of Contents
-- [Chapter 1 Introduction](#chapter-1-introduction)
-- [Chapter 2 Setting up environment](#chapter-2-setting-up-environment)
-- [Chapter 3 Introduction to PHP](#chapter-3-introduction-to-php)
-- [Chapter 4 Expressions and Control Flow](#chapter-4-expressions-and-control-flow)
-- [Chapter 5 Functions and Objects](#chapter-5-functions-and-objects)
-- [Chapter 6 Arrays](#chapter-6-arrays)
-- [Chapter 7 Practical PHP](#chapter-7-practical-php)
-- [Chapter 8 Introduction to MySQL](#chapter-8-introduction-to-mysql)
-- [Chapter 9 Mastering MySQL](#chapter-9-mastering-mysql)
-- [Chapter 10 Access MySQL using PHP](#chapter-10-access-mysql-using-php)
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Table of Contents](#table-of-contents)
+	- [Chapter 1 Introduction](#chapter-1-introduction)
+	- [Chapter 2 Setting up environment](#chapter-2-setting-up-environment)
+	- [Chapter 3 Introduction to PHP](#chapter-3-introduction-to-php)
+	- [Chapter 4 Expressions and Control Flow](#chapter-4-expressions-and-control-flow)
+	- [Chapter 5 Functions and Objects](#chapter-5-functions-and-objects)
+	- [Chapter 6 Arrays](#chapter-6-arrays)
+	- [Chapter 7 Practical PHP](#chapter-7-practical-php)
+	- [Chapter 8 Introduction to MySQL](#chapter-8-introduction-to-mysql)
+	- [Chapter 9 Mastering MySQL](#chapter-9-mastering-mysql)
+	- [Chapter 10 Access MySQL using PHP](#chapter-10-access-mysql-using-php)
+	- [Chapter 11 Form Handling](#chapter-11-form-handling)
+	- [Chapter 12 Cookies, Sessions, and Authentications](#chapter-12-cookies-sessions-and-authentications)
+
+<!-- /TOC -->
 
 ## Chapter 1 Introduction
-![image](https://github.com/duyang0627/rendevent/raw/master/notes/General%20flowchart.png)
-![image](./流程图.jpg)
-
+![image](general flowchart.png)
 
 **PHP**: for backend use. Achieve dynamic webpage by generating html specific to user request.
 
@@ -527,6 +532,8 @@ SELECT name,author,title FROM
 
 ***AND, OR,*** and ***NOT*** can be used in WHERE conditions.
 
+MySQL use `#` to represent the start of comment.
+
 ## Chapter 9 Mastering MySQL
 
 **Normalization** : Reduce Duplication
@@ -748,3 +755,188 @@ if (!$result) die ("Database access failed: " . $conn->error);
 echo "The Insert ID was: " . $result->insert_id;
 ?>
 ```
+
+**Security**
+
+**SQL Injection**
+```php
+<?php
+$user = $_POST['user']; //$user == "anything' OR 1=1 #"
+$pass = $_POST['pass'];
+$query = "DELETE FROM users WHERE user='$user' AND pass='$pass'";
+/* DELETE FROM users WHERE user='anything' OR 1=1 #' AND pass=''*/
+?>
+```
+
+Always use `conn->real_escape_string()` to sanitize the input string; or use
+MySQL placeholders:
+```sql
+PREPARE statement FROM "INSERT INTO classics VALUES(?,?,?,?,?)";
+SET @author = "Emily Brontë",
+	@title = "Wuthering Heights",
+	@category = "Classic Fiction",
+	@year = "1847",
+	@isbn = "9780553212587";
+EXECUTE statement USING @author,@title,@category,@year,@isbn;
+DEALLOCATE PREPARE statement;
+```
+In php, to use place holders:
+```php
+<?php
+$stmt = $conn->prepare('INSERT INTO classics VALUES(?,?,?,?,?)');
+$stmt->bind_param('sssss', $author, $title, $category, $year, $isbn);
+/* s stands for string; i: integer; d: double; b: blob*/
+$stmt->execute();
+printf("%d Row inserted.\n", $stmt->affected_rows);
+$stmt->close();
+$conn->close();
+?>
+```
+
+**HTML Injection**
+
+Hacker could leave such a comment in user's page:
+```html
+<script src='http://x.com/hack.js'>
+</script><script>hack();</script>
+```
+After using `htmlentities()`:
+```
+&lt;script src='http://x.com/hack.js'&gt; &lt;/script&gt;
+&lt;script&gt;hack();&lt;/script&gt;
+```
+## Chapter 11 Form Handling
+
+An example of `<form>`
+```php
+<html>
+    <head>
+        <title>Form test</title>
+    </head>
+    <body>
+        <form method="post" action="formtest.php">
+            <!--
+                default value of "name" is "yang", default value can also
+                be used for hidden fields to pass values
+            -->
+            <input type="text" name="name" value="yang">
+            <input type="submit">
+        </form>
+    </body>
+</html>
+```
+
+`$_POST` is an associative array which stores data submitted in `<form>`
+
+If `register_global` is set, it indicates instead of `_POST['name']`, `$name`
+is preloaded with value when PHP starts. This is **not recommended**.
+
+**Form Types:**
+
+```html
+<!-- Text Box.
+    size indicates the width of textbox(in the number of chars)
+    maxlength is the maximum number of chars that is allowed to enter-->
+<input type="text" name="name" size="size" maxlength="length" value="value">
+<!-- Text area has its own tag.
+    "wrap" field can have three values: off, soft, hard-->
+<textarea name="name" cols="width" rows="height" wrap="soft">
+    This is some default text.
+</textarea>
+<!-- Check Box. The "value" field will be "on" if omitted. value will be submitted-->
+<input type="checkbox" name="name" value="value" checked="checked">
+<!-- Submitting multiple values, _POST['ice'] will be an array of strings-->
+Vanilla <input type="checkbox" name="ice[]" value="Vanilla">
+Chocolate <input type="checkbox" name="ice[]" value="Chocolate">
+Strawberry <input type="checkbox" name="ice[]" value="Strawberry">
+<!-- Radio Buttons -->
+8am-Noon<input type="radio" name="time" value="1">
+Noon-4pm<input type="radio" name="time" value="2" checked="checked">
+4pm-8pm<input type="radio" name="time" value="3">
+<!-- hidden input -->
+<input type="hidden" name="hiddeninput" value="yes">
+<!-- Dropdown Menu, "size" indicates number of items to display,
+    multiple indicates multiple items could be selected-->
+<select name="name" size="size" multiple="multiple">
+Vegetable:    
+<select name="veg" size="1">
+    <option value="Peas">Peas</option>
+    <option selected="selected" value="Beans">Beans</option>
+    <option value="Carrots">Carrots</option>
+</select>
+<!-- Label, click anywhere in the label to select the radio button -->
+<label>8am-Noon<input type="radio" name="time" value="1"></label>
+<!-- submit button -->
+<input type="submit" value="Search">
+<!-- click image to submit -->
+<input type="image" name="submit" src="image.gif">
+```
+Note: hidden fields are **not secure**. Every body could view source.
+
+Universal Sanitizing:
+```php
+<?php
+  function sanitizeString($var)
+  {
+    if (get_magic_quotes_gpc())
+      $var = stripslashes($var);
+    $var = strip_tags($var);
+    $var = htmlentities($var);
+    return $var;
+  }
+
+  function sanitizeMySQL($connection, $var)
+  {
+    $var = $connection->real_escape_string($var);
+    $var = sanitizeString($var);
+    return $var;
+  }
+?>
+```
+New in html5:
+```html
+<!-- Autocomplete -->
+<form action='myform.php' method='post' autocomplete='on'>
+    <input type='text' name='username'>
+    <input type='password' name='password' autocomplete='off'>
+</form>
+<!-- Auto focus -->
+<input type='text' name='query' autofocus='autofocus'>
+<!-- Placeholder attribute, give a hint in text box -->
+<input type='text' name='name' size='50' placeholder='First & Last name'>
+<!-- Required attribute: ensure a field has been completed before submission-->
+<input type='text' name='creditcard' required='required'>
+<!-- Overide attributes, for example 'formaction' -->
+<form action='url1.php' method='post'>
+    <input type='text' name='field'>
+    <input type='submit' formaction='url2.php'>
+</form>
+<!-- width and height attributes -->
+<input type='image' src='picture.png' width='120' height='80'>
+
+<!-- form attribute, input doesn't have to be in <form> -->
+<form action='myscript.php' method='post' id='form1'>
+</form>
+<input type='text' name='username' form='form1'>
+<!-- The list attribute -->
+Select destination:
+<input type='url' name='site' list='links'>
+<datalist id='links'>
+	<option label='Google' value = 'http://google.com'>
+	<option label='Yahoo!' value = 'http://yahoo.com'>
+	<option label='Bing' value = 'http://bing.com'>
+	<option label='Ask' value = 'http://ask.com'>
+</datalist>
+<!-- min and max, and step attribute -->
+<input type='time' name='meeting' value='12:00' min='09:00' max='16:00' step='3600'>
+<!-- color picker -->
+Choose a color <input type='color' name='color'>
+<!-- number and range input type -->
+<input type='number' name='age'>
+<input type='range' name='num' min='0' max='100' value='50' step='1'>
+<!-- date and time picker: date, month, week, time, datetime ...-->
+<input type='time' name='time' value='12:34'>
+```
+
+## Chapter 12 Cookies, Sessions, and Authentications
+![image](cookie flowchart.png)
