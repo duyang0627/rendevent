@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CLPopViewController.h"
+#import "XLPopMenuViewModel.h"
+#import "XLPopMenuViewSingleton.h"
 
-@interface EventsViewController : UIViewController
+@interface EventsViewController : UIViewController<UIPopoverPresentationControllerDelegate>
 
 @property(strong, nonatomic) UISearchController *searchController;
+@property (nonatomic,strong) CLPopViewController *itemPopVC;
+@property (nonatomic,strong) NSMutableArray *popupItemarr;
 
 @end

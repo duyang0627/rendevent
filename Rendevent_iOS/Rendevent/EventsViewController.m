@@ -11,9 +11,11 @@
 #import "CarbonKit.h"
 #import "MySearchResultController.h"
 
+
 @interface EventsViewController () <CarbonTabSwipeNavigationDelegate>
 {
     NSArray *items;
+    NSArray *popupMenuItem;
     UISearchBar *searchBar;
     CarbonTabSwipeNavigation *carbonTabSwipeNavigation;
     MySearchResultController *resultController;
@@ -42,11 +44,13 @@
 //    self.searchController.searchResultsUpdater = self;
 //    self.searchController.dimsBackgroundDuringPresentation = false;
     // Install the search bar as the table header.
-    self.navigationItem.titleView = searchBar;
+//    self.navigationItem.titleView = searchBar;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBarAction)];
     // It is usually good to set the presentation context.
     self.definesPresentationContext = YES;
     
     items = @[@"Recommendation", @"Nearby", @"Soon"];
+    popupMenuItem = @[@"New Event", @"Login", @"Search"];
     
     carbonTabSwipeNavigation = [[CarbonTabSwipeNavigation alloc] initWithItems:items delegate:self];
     [carbonTabSwipeNavigation insertIntoRootViewController:self];
@@ -63,6 +67,30 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)rightBarAction
+{
+    if (!_popupItemarr)
+    {
+        _popupItemarr = [[NSMutableArray alloc] init];
+        for (int i = 0; i < popupMenuItem.count; i++) {
+            XLPopMenuViewModel *model = [[XLPopMenuViewModel alloc] init];
+            //            model.image = [self images][i]; //添加图片
+            model.title = popupMenuItem[i];
+            [_popupItemarr addObject:model];
+        }
+    }
+    // 弹出框的宽度
+    CGFloat menuViewWidth = 150;
+    // 弹出框的左上角起点坐标
+    CGPoint startPoint = CGPointMake([UIScreen mainScreen].bounds.size.width - menuViewWidth - 10, 64 + 12);
+    
+    [[XLPopMenuViewSingleton shareManager] creatPopMenuWithFrame:startPoint popMenuWidth:menuViewWidth popMenuItems:_popupItemarr action:^(NSInteger index) {
+        NSLog(@"index= %ld",(long)index);
+        
+    }];
+    
 }
 
 - (void)style {

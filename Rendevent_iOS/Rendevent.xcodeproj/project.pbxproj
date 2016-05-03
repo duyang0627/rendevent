@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D71ADD11CD94029002958A6 /* MMZCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADC61CD94029002958A6 /* MMZCViewController.m */; };
+		9D71ADD21CD94029002958A6 /* MMZCHMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADC81CD94029002958A6 /* MMZCHMViewController.m */; };
+		9D71ADD31CD94029002958A6 /* settingPassWardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADCA1CD94029002958A6 /* settingPassWardViewController.m */; };
+		9D71ADD41CD94029002958A6 /* settinhHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADCC1CD94029002958A6 /* settinhHeaderViewController.m */; };
+		9D71ADD51CD94029002958A6 /* forgetPassWardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADCE1CD94029002958A6 /* forgetPassWardViewController.m */; };
+		9D71ADD61CD94029002958A6 /* newPassWardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADD01CD94029002958A6 /* newPassWardViewController.m */; };
+		9D71ADD91CD94168002958A6 /* LoginNaviBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADD81CD94168002958A6 /* LoginNaviBaseViewController.m */; };
+		9D71ADDD1CD94660002958A6 /* CLPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADDB1CD94660002958A6 /* CLPopViewController.m */; };
+		9D71ADDE1CD94660002958A6 /* CLPopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D71ADDC1CD94660002958A6 /* CLPopViewController.xib */; };
+		9D71ADE91CD94B6B002958A6 /* XLPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADE11CD94B6B002958A6 /* XLPopMenuView.m */; };
+		9D71ADEA1CD94B6B002958A6 /* XLMenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADE31CD94B6B002958A6 /* XLMenuViewCell.m */; };
+		9D71ADEB1CD94B6B002958A6 /* XLPopMenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADE51CD94B6B002958A6 /* XLPopMenuViewModel.m */; };
+		9D71ADEC1CD94B6B002958A6 /* XLPopMenuViewSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADE71CD94B6B002958A6 /* XLPopMenuViewSingleton.m */; };
+		9D90EAA31CD92AC2000E826B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D90EAA21CD92AC2000E826B /* ProfileViewController.m */; };
 		9DEADF6B1CCEC5F1009FB7DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DEADF6A1CCEC5F1009FB7DF /* main.m */; };
 		9DEADF6E1CCEC5F1009FB7DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DEADF6D1CCEC5F1009FB7DF /* AppDelegate.m */; };
 		9DEADF711CCEC5F1009FB7DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DEADF701CCEC5F1009FB7DF /* ViewController.m */; };
@@ -51,6 +65,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D71ADC51CD94029002958A6 /* MMZCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMZCViewController.h; sourceTree = "<group>"; };
+		9D71ADC61CD94029002958A6 /* MMZCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMZCViewController.m; sourceTree = "<group>"; };
+		9D71ADC71CD94029002958A6 /* MMZCHMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMZCHMViewController.h; sourceTree = "<group>"; };
+		9D71ADC81CD94029002958A6 /* MMZCHMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMZCHMViewController.m; sourceTree = "<group>"; };
+		9D71ADC91CD94029002958A6 /* settingPassWardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingPassWardViewController.h; sourceTree = "<group>"; };
+		9D71ADCA1CD94029002958A6 /* settingPassWardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingPassWardViewController.m; sourceTree = "<group>"; };
+		9D71ADCB1CD94029002958A6 /* settinhHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settinhHeaderViewController.h; sourceTree = "<group>"; };
+		9D71ADCC1CD94029002958A6 /* settinhHeaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settinhHeaderViewController.m; sourceTree = "<group>"; };
+		9D71ADCD1CD94029002958A6 /* forgetPassWardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forgetPassWardViewController.h; sourceTree = "<group>"; };
+		9D71ADCE1CD94029002958A6 /* forgetPassWardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = forgetPassWardViewController.m; sourceTree = "<group>"; };
+		9D71ADCF1CD94029002958A6 /* newPassWardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newPassWardViewController.h; sourceTree = "<group>"; };
+		9D71ADD01CD94029002958A6 /* newPassWardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newPassWardViewController.m; sourceTree = "<group>"; };
+		9D71ADD71CD94168002958A6 /* LoginNaviBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginNaviBaseViewController.h; sourceTree = "<group>"; };
+		9D71ADD81CD94168002958A6 /* LoginNaviBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginNaviBaseViewController.m; sourceTree = "<group>"; };
+		9D71ADDA1CD94660002958A6 /* CLPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPopViewController.h; sourceTree = "<group>"; };
+		9D71ADDB1CD94660002958A6 /* CLPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPopViewController.m; sourceTree = "<group>"; };
+		9D71ADDC1CD94660002958A6 /* CLPopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CLPopViewController.xib; sourceTree = "<group>"; };
+		9D71ADE01CD94B6B002958A6 /* XLPopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPopMenuView.h; sourceTree = "<group>"; };
+		9D71ADE11CD94B6B002958A6 /* XLPopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPopMenuView.m; sourceTree = "<group>"; };
+		9D71ADE21CD94B6B002958A6 /* XLMenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLMenuViewCell.h; sourceTree = "<group>"; };
+		9D71ADE31CD94B6B002958A6 /* XLMenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLMenuViewCell.m; sourceTree = "<group>"; };
+		9D71ADE41CD94B6B002958A6 /* XLPopMenuViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPopMenuViewModel.h; sourceTree = "<group>"; };
+		9D71ADE51CD94B6B002958A6 /* XLPopMenuViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPopMenuViewModel.m; sourceTree = "<group>"; };
+		9D71ADE61CD94B6B002958A6 /* XLPopMenuViewSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPopMenuViewSingleton.h; sourceTree = "<group>"; };
+		9D71ADE71CD94B6B002958A6 /* XLPopMenuViewSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPopMenuViewSingleton.m; sourceTree = "<group>"; };
+		9D90EAA11CD92AC2000E826B /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		9D90EAA21CD92AC2000E826B /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		9DEADF661CCEC5F1009FB7DF /* Rendevent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rendevent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DEADF6A1CCEC5F1009FB7DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9DEADF6C1CCEC5F1009FB7DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -139,6 +180,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D71ADC41CD93E5B002958A6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9D71ADC51CD94029002958A6 /* MMZCViewController.h */,
+				9D71ADC61CD94029002958A6 /* MMZCViewController.m */,
+				9D71ADC71CD94029002958A6 /* MMZCHMViewController.h */,
+				9D71ADC81CD94029002958A6 /* MMZCHMViewController.m */,
+				9D71ADC91CD94029002958A6 /* settingPassWardViewController.h */,
+				9D71ADCA1CD94029002958A6 /* settingPassWardViewController.m */,
+				9D71ADCB1CD94029002958A6 /* settinhHeaderViewController.h */,
+				9D71ADCC1CD94029002958A6 /* settinhHeaderViewController.m */,
+				9D71ADCD1CD94029002958A6 /* forgetPassWardViewController.h */,
+				9D71ADCE1CD94029002958A6 /* forgetPassWardViewController.m */,
+				9D71ADCF1CD94029002958A6 /* newPassWardViewController.h */,
+				9D71ADD01CD94029002958A6 /* newPassWardViewController.m */,
+				9D71ADD71CD94168002958A6 /* LoginNaviBaseViewController.h */,
+				9D71ADD81CD94168002958A6 /* LoginNaviBaseViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		9D71ADDF1CD94668002958A6 /* CLPopView */ = {
+			isa = PBXGroup;
+			children = (
+				9D71ADDA1CD94660002958A6 /* CLPopViewController.h */,
+				9D71ADDB1CD94660002958A6 /* CLPopViewController.m */,
+				9D71ADDC1CD94660002958A6 /* CLPopViewController.xib */,
+			);
+			name = CLPopView;
+			sourceTree = "<group>";
+		};
+		9D71ADE81CD94B6B002958A6 /* PopMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				9D71ADE01CD94B6B002958A6 /* XLPopMenuView.h */,
+				9D71ADE11CD94B6B002958A6 /* XLPopMenuView.m */,
+				9D71ADE21CD94B6B002958A6 /* XLMenuViewCell.h */,
+				9D71ADE31CD94B6B002958A6 /* XLMenuViewCell.m */,
+				9D71ADE41CD94B6B002958A6 /* XLPopMenuViewModel.h */,
+				9D71ADE51CD94B6B002958A6 /* XLPopMenuViewModel.m */,
+				9D71ADE61CD94B6B002958A6 /* XLPopMenuViewSingleton.h */,
+				9D71ADE71CD94B6B002958A6 /* XLPopMenuViewSingleton.m */,
+			);
+			name = PopMenuView;
+			path = ../../../../Downloads/PopMenu_QQ_Demo/PopMenu_QQ_Demo/PopMenuView;
+			sourceTree = "<group>";
+		};
+		9D90EAA01CD92A80000E826B /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				9D90EAA11CD92AC2000E826B /* ProfileViewController.h */,
+				9D90EAA21CD92AC2000E826B /* ProfileViewController.m */,
+			);
+			name = UserProfile;
+			sourceTree = "<group>";
+		};
 		9DEADF5D1CCEC5F1009FB7DF = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +255,8 @@
 		9DEADF681CCEC5F1009FB7DF /* Rendevent */ = {
 			isa = PBXGroup;
 			children = (
+				9D71ADC41CD93E5B002958A6 /* Login */,
+				9D90EAA01CD92A80000E826B /* UserProfile */,
 				9DF3B7591CD7381600DFCF5C /* SDCycleScrollView */,
 				9DF3B73F1CD5A17A00DFCF5C /* EventPage */,
 				9DF3B7351CD1E36D00DFCF5C /* ChineseSorting */,
@@ -206,10 +305,12 @@
 		9DF3B71A1CCEE82B00DFCF5C /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				9D71ADDF1CD94668002958A6 /* CLPopView */,
 				9DF3B71B1CCF0BE000DFCF5C /* MySearchResultController.h */,
 				9DF3B71C1CCF0BE000DFCF5C /* MySearchResultController.m */,
 				9DF3B7141CCEE77C00DFCF5C /* EventsViewController.h */,
 				9DF3B7151CCEE77C00DFCF5C /* EventsViewController.m */,
+				9D71ADE81CD94B6B002958A6 /* PopMenuView */,
 				9DF3B7171CCEE81F00DFCF5C /* RecomEventsController.h */,
 				9DF3B7181CCEE81F00DFCF5C /* RecomEventsController.m */,
 				9DF3B7231CCF362A00DFCF5C /* EventCell.h */,
@@ -401,6 +502,7 @@
 				9DF3B7581CD5D37600DFCF5C /* MemberListCell.xib in Resources */,
 				9DF3B7701CD7381600DFCF5C /* LICENSE in Resources */,
 				9DF3B7531CD5CCB700DFCF5C /* MemberListCollection.xib in Resources */,
+				9D71ADDE1CD94660002958A6 /* CLPopViewController.xib in Resources */,
 				9DEADF761CCEC5F1009FB7DF /* Assets.xcassets in Resources */,
 				9DF3B7411CD5A1A600DFCF5C /* EventPageInfo.xib in Resources */,
 				9DEADF741CCEC5F1009FB7DF /* Main.storyboard in Resources */,
@@ -423,7 +525,12 @@
 				9DF3B7111CCEE73D00DFCF5C /* CarbonTabSwipeNavigation.m in Sources */,
 				9DF3B7121CCEE73D00DFCF5C /* CarbonTabSwipeScrollView.m in Sources */,
 				9DF3B7791CD7381600DFCF5C /* UIView+SDExtension.m in Sources */,
+				9D71ADD31CD94029002958A6 /* settingPassWardViewController.m in Sources */,
+				9D71ADEC1CD94B6B002958A6 /* XLPopMenuViewSingleton.m in Sources */,
+				9D71ADEB1CD94B6B002958A6 /* XLPopMenuViewModel.m in Sources */,
 				9DF3B7711CD7381600DFCF5C /* README.md in Sources */,
+				9D71ADD91CD94168002958A6 /* LoginNaviBaseViewController.m in Sources */,
+				9D71ADDD1CD94660002958A6 /* CLPopViewController.m in Sources */,
 				9DF3B7731CD7381600DFCF5C /* TAAbstractDotView.m in Sources */,
 				9DF3B7511CD5C83D00DFCF5C /* MemberListView.m in Sources */,
 				9DF3B7251CCF362A00DFCF5C /* EventCell.m in Sources */,
@@ -434,13 +541,20 @@
 				9DF3B7281CCFF0EA00DFCF5C /* MyEventsViewController.m in Sources */,
 				9DF3B77E1CD8582300DFCF5C /* User.m in Sources */,
 				9DF3B7191CCEE81F00DFCF5C /* RecomEventsController.m in Sources */,
+				9D71ADD61CD94029002958A6 /* newPassWardViewController.m in Sources */,
 				9DF3B73E1CD53A1300DFCF5C /* EventCellDetail.m in Sources */,
+				9D71ADD21CD94029002958A6 /* MMZCHMViewController.m in Sources */,
 				9DEADF6E1CCEC5F1009FB7DF /* AppDelegate.m in Sources */,
+				9D71ADD41CD94029002958A6 /* settinhHeaderViewController.m in Sources */,
 				9DF3B7741CD7381600DFCF5C /* TAAnimatedDotView.m in Sources */,
 				9DF3B7761CD7381600DFCF5C /* TAPageControl.m in Sources */,
+				9D71ADE91CD94B6B002958A6 /* XLPopMenuView.m in Sources */,
 				9DEADF6B1CCEC5F1009FB7DF /* main.m in Sources */,
 				9DF3B7161CCEE77C00DFCF5C /* EventsViewController.m in Sources */,
+				9D71ADD11CD94029002958A6 /* MMZCViewController.m in Sources */,
+				9D71ADD51CD94029002958A6 /* forgetPassWardViewController.m in Sources */,
 				9DF3B7571CD5D37600DFCF5C /* MemberListCell.m in Sources */,
+				9D90EAA31CD92AC2000E826B /* ProfileViewController.m in Sources */,
 				9DF3B7771CD7381600DFCF5C /* SDCollectionViewCell.m in Sources */,
 				9DF3B7331CD1E31A00DFCF5C /* ContactViewController.m in Sources */,
 				9DF3B7721CD7381600DFCF5C /* NSData+SDDataCache.m in Sources */,
@@ -448,6 +562,7 @@
 				9DF3B74D1CD5B4CD00DFCF5C /* EventInfoCellTableViewCell.m in Sources */,
 				9DF3B7101CCEE73D00DFCF5C /* CarbonSwipeRefresh.m in Sources */,
 				9DF3B73A1CD1E36D00DFCF5C /* ChineseString.m in Sources */,
+				9D71ADEA1CD94B6B002958A6 /* XLMenuViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
