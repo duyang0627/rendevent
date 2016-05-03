@@ -18,6 +18,7 @@
     event.descrip = aDescription;
     event.startTime = aStartTime;
     event.endTime = aEndTime;
+    event.members = [NSMutableArray arrayWithCapacity:6];
     
     return event;
 }

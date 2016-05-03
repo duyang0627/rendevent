@@ -138,12 +138,14 @@
             cell.titleLabel.text = event.name;
             cell.startLabel.text = [self stringFromDate:event.startTime];
             cell.endLabel.text = [self stringFromDate:event.endTime];
+            cell.hostImg.image = [UIImage imageNamed:@"4"];
         }
     }else{
         cell = (EventCell * )[tableView dequeueReusableCellWithIdentifier:@"EventCell"];
         cell.titleLabel.text = event.name;
         cell.startLabel.text = [self stringFromDate:event.startTime];
         cell.endLabel.text = [self stringFromDate:event.endTime];
+        cell.hostImg.image = [UIImage imageNamed:@"4"];
     }
     return cell;
 }
