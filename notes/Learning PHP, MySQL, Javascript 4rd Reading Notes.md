@@ -14,11 +14,14 @@
 	- [Chapter 10 Access MySQL using PHP](#chapter-10-access-mysql-using-php)
 	- [Chapter 11 Form Handling](#chapter-11-form-handling)
 	- [Chapter 12 Cookies, Sessions, and Authentications](#chapter-12-cookies-sessions-and-authentications)
+	- [Chapter 13 Exloring Javascript](#chapter-13-exloring-javascript)
+	- [Miscellaneous](#miscellaneous)
+		- [REST](#rest)
 
 <!-- /TOC -->
 
 ## Chapter 1 Introduction
-![image](./General\ flowchart.png)
+![image](./general%20flowchart.png)
 
 **PHP**: for backend use. Achieve dynamic webpage by generating html specific to user request.
 
@@ -377,6 +380,16 @@ else
 ```
 function ***htmlspecialchars*** turn any special characters into the way html understands.
 
+**Other useful functions**
+
+- ***json_encode(array)*** accepts an associative array and turns it into a json string.
+- ***implode(glue, pieces)*** join array with *glue* into a string.
+- ***in_array(element, array)*** test if *element* is in *array*.
+- ***usort(array, function($a, $b){//definition})*** sort
+- ***parse_str(str, arr)***: parse *str* as http query string and generate
+	key-value pairs into associative array *arr*
+
+
 ## Chapter 8 Introduction to MySQL
 
 MySQL CLI(Command Line Interface):
@@ -389,10 +402,18 @@ CREATE DATABASE publications;
 USE publications;
 ```
 
+Reset root password and create new user:
+```sql
+mysql -u root -p
+USE mysql;
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('MyNewPass');
+CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+```
+
 Grant Priviledges to a user:
 ```sql
-GRANT PRIVILEGES ON database.object TO 'username'@'hostname'
-IDENTIFIED BY 'password';
+GRANT PRIVILEGES ON database.object TO 'username'@'hostname' IDENTIFIED by 'pass';
+GRANT ALL ON *.* TO 'jim'@'localhost' IDENTIFIED BY 'password';
 ```
 
 Create Table:
@@ -595,6 +616,24 @@ UNLOCK TABLES; /*after backup*/
 To restore
 ```
 mysql -u username -p -D databasename < mysqlbackup.sql
+```
+
+OAuth Table:
+```sql
+CREATE TABLE `users` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `oauth_provider` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+    `oauth_uid` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+    `fname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+    `lname` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+    `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+    `gender` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+    `locale` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+    `picture` text  COLLATE utf8_unicode_ci NOT NULL,
+    `created` datetime NOT NULL,
+    `modified` datetime NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 ```
 
 ## Chapter 10 Access MySQL using PHP
@@ -939,4 +978,167 @@ Choose a color <input type='color' name='color'>
 ```
 
 ## Chapter 12 Cookies, Sessions, and Authentications
-![image](cookie flowchart.png)
+![image](./cookie%20flowchart.png)
+
+Use cookie in PHP: (pg 289)
+```php
+<?php
+if (isset($_COOKIE['username'])) $username = $_COOKIE['username'];//access cookie
+setcookie(name, value, expire, path, domain, secure, httponly);//set a cookie
+?>
+```
+To destroy a cookie, issue a cookie with expiration date in the past.
+
+**HTTP Authentication**: pg 291
+```php
+<?php
+if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW']))
+{
+	echo "Welcome User: " . $_SERVER['PHP_AUTH_USER'] .
+		" Password: " . $_SERVER['PHP_AUTH_PW'];
+}
+else
+{
+	header('WWW-Authenticate: Basic realm="Restricted Section"');
+	header('HTTP/1.0 401 Unauthorized');
+	die("Please enter your username and password");
+}
+?>
+```
+Once authenticated, the browser will keep sending the same username and password
+until the browser exits.
+
+**Storing username and passwords**
+
+```php
+$saltedPassword = "salt".$mypassword."string";
+$token = hash('ripemd128', $saltedPassword);
+```
+
+**Sessions**
+
+place a cookie in user's browser to uniquely identify the user,
+then use groups of variable stored on the server that are only related to
+this user to track down the user. (If user disable cookie, PHP simply put
+a field in GET request)
+
+```php
+<?php
+//authenticate.php
+session_start();
+$_SESSION['username'] = $un_temp;
+$_SESSION['password'] = $pw_temp;
+$_SESSION['forename'] = $row[0];
+$_SESSION['surname'] = $row[1];
+echo "$row[0] $row[1] : Hi $row[0], you are now logged in as '$row[2]'";
+die ("<p><a href=continue.php>Click here to continue</a></p>");
+//continue.php
+session_start();
+if (isset($_SESSION['username']))
+{
+	$username = $_SESSION['username'];
+	$password = $_SESSION['password'];
+	$forename = $_SESSION['forename'];
+	$surname = $_SESSION['surname'];
+	echo "Welcome back $forename.<br> Your full name is $forename $surname.<br>
+		Your username is '$username' and your password is '$password'.";
+}
+else echo "Please <a href='authenticate.php'>click here</a> to log in.";
+?>
+```
+To destroy a session:
+```php
+<?php
+function destroy_session_and_data()
+{
+	$_SESSION = array();
+	setcookie(session_name(), '', time() - 2592000, '/');
+	session_destroy();
+}
+?>
+```
+Setting session time-out:
+```php
+ini_set('session.gc_maxlifetime', 60 * 60 * 24);
+echo ini_get('session.gc_maxlifetime');
+```
+Session is not secure enough, as it is possible to use *packet sniffing* to
+discover session IDs. Attacker can use session ID to achieve
+***session hijacking***. The only secure way is to use ***https***.
+
+When https is not possible, try adding another layer of checking:
+```php
+$_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+if ($_SESSION['ip'] != $_SERVER['REMOTE_ADDR'])
+	different_user();//destroy session and ask for login again
+$_SESSION['ua'] = $_SERVER['HTTP_USER_AGENT'];
+if ($_SESSION['ua'] != $_SERVER['HTTP_USER_AGENT']) different_user();
+
+$_SESSION['check'] = hash('ripemd128',
+		$_SERVER['REMOTE_ADDR'] . $_SERVER['HTTP_USER_AGENT']);
+```
+
+**Session fixation**: user might type `sessiontest.php?PHPSESSID=1234` force
+a session id to server, rather than the server creates its own. Attacker might
+leave such urls to other users, so that they leave a backdoor that they can
+came back later.
+
+Prevent fixation by `session_regenerate_id();` to generate a different id.
+Or use `ini_set('session.use_only_cookies', 1);` to enforce cookie-only session.
+
+To set session save path to prevent other users accessing on a whared web server:
+```
+ini_set('session.save_path', '/home/user/myaccount/sessions');
+```
+
+## Chapter 13 Exloring Javascript
+
+Hello world in Javascript:
+```html
+<html>
+<head><title>Hello World</title></head>
+<body>
+	<script type="text/javascript">
+		document.write("Hello World")
+	</script>
+	<noscript>
+		Your browser doesn't support or has disabled JavaScript
+	</noscript>
+</body>
+</html>
+```
+
+Javascript separate statements by newline. But semicolon still works.
+
+Include javascript files:
+```html
+<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="http://someserver.com/script.js"></script>
+```
+
+It is OK to leave out `type="text/javascript"`, javascript will be used in default.
+
+In Firefox or Chrome, use Control+Shift+J to open javascript error console.
+
+Like PHP, string literals can be enclosed by either ' or ", e.g."he" or 'he'.
+
+## Miscellaneous
+
+PHP Super Globals: http://www.w3schools.com/php/php_superglobals.asp
+
+### REST
+
+- REST == Representation State Transfer
+- Resource-based
+- Representations
+
+6 constraints
+
+1. Uniform Interface
+2. Stateless
+3. Client-server
+4. Cacheable
+5. Layered System
+6. Code on demand
+
+Creating a RESTful PHP API: http://coreymaynard.com/blog/creating-a-restful-api-with-php/
