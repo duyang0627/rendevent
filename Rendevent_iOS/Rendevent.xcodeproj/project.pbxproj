@@ -16,10 +16,10 @@
 		9D71ADD91CD94168002958A6 /* LoginNaviBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADD81CD94168002958A6 /* LoginNaviBaseViewController.m */; };
 		9D71ADDD1CD94660002958A6 /* CLPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADDB1CD94660002958A6 /* CLPopViewController.m */; };
 		9D71ADDE1CD94660002958A6 /* CLPopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D71ADDC1CD94660002958A6 /* CLPopViewController.xib */; };
-		9D71ADE91CD94B6B002958A6 /* XLPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADE11CD94B6B002958A6 /* XLPopMenuView.m */; };
-		9D71ADEA1CD94B6B002958A6 /* XLMenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADE31CD94B6B002958A6 /* XLMenuViewCell.m */; };
-		9D71ADEB1CD94B6B002958A6 /* XLPopMenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADE51CD94B6B002958A6 /* XLPopMenuViewModel.m */; };
-		9D71ADEC1CD94B6B002958A6 /* XLPopMenuViewSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADE71CD94B6B002958A6 /* XLPopMenuViewSingleton.m */; };
+		9D71ADF61CDA84DE002958A6 /* XLMenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADEF1CDA84DE002958A6 /* XLMenuViewCell.m */; };
+		9D71ADF71CDA84DE002958A6 /* XLPopMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADF11CDA84DE002958A6 /* XLPopMenuView.m */; };
+		9D71ADF81CDA84DE002958A6 /* XLPopMenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADF31CDA84DE002958A6 /* XLPopMenuViewModel.m */; };
+		9D71ADF91CDA84DE002958A6 /* XLPopMenuViewSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D71ADF51CDA84DE002958A6 /* XLPopMenuViewSingleton.m */; };
 		9D90EAA31CD92AC2000E826B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D90EAA21CD92AC2000E826B /* ProfileViewController.m */; };
 		9DEADF6B1CCEC5F1009FB7DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DEADF6A1CCEC5F1009FB7DF /* main.m */; };
 		9DEADF6E1CCEC5F1009FB7DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DEADF6D1CCEC5F1009FB7DF /* AppDelegate.m */; };
@@ -82,14 +82,14 @@
 		9D71ADDA1CD94660002958A6 /* CLPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPopViewController.h; sourceTree = "<group>"; };
 		9D71ADDB1CD94660002958A6 /* CLPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLPopViewController.m; sourceTree = "<group>"; };
 		9D71ADDC1CD94660002958A6 /* CLPopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CLPopViewController.xib; sourceTree = "<group>"; };
-		9D71ADE01CD94B6B002958A6 /* XLPopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPopMenuView.h; sourceTree = "<group>"; };
-		9D71ADE11CD94B6B002958A6 /* XLPopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPopMenuView.m; sourceTree = "<group>"; };
-		9D71ADE21CD94B6B002958A6 /* XLMenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLMenuViewCell.h; sourceTree = "<group>"; };
-		9D71ADE31CD94B6B002958A6 /* XLMenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLMenuViewCell.m; sourceTree = "<group>"; };
-		9D71ADE41CD94B6B002958A6 /* XLPopMenuViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPopMenuViewModel.h; sourceTree = "<group>"; };
-		9D71ADE51CD94B6B002958A6 /* XLPopMenuViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPopMenuViewModel.m; sourceTree = "<group>"; };
-		9D71ADE61CD94B6B002958A6 /* XLPopMenuViewSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPopMenuViewSingleton.h; sourceTree = "<group>"; };
-		9D71ADE71CD94B6B002958A6 /* XLPopMenuViewSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPopMenuViewSingleton.m; sourceTree = "<group>"; };
+		9D71ADEE1CDA84DE002958A6 /* XLMenuViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLMenuViewCell.h; sourceTree = "<group>"; };
+		9D71ADEF1CDA84DE002958A6 /* XLMenuViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLMenuViewCell.m; sourceTree = "<group>"; };
+		9D71ADF01CDA84DE002958A6 /* XLPopMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPopMenuView.h; sourceTree = "<group>"; };
+		9D71ADF11CDA84DE002958A6 /* XLPopMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPopMenuView.m; sourceTree = "<group>"; };
+		9D71ADF21CDA84DE002958A6 /* XLPopMenuViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPopMenuViewModel.h; sourceTree = "<group>"; };
+		9D71ADF31CDA84DE002958A6 /* XLPopMenuViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPopMenuViewModel.m; sourceTree = "<group>"; };
+		9D71ADF41CDA84DE002958A6 /* XLPopMenuViewSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLPopMenuViewSingleton.h; sourceTree = "<group>"; };
+		9D71ADF51CDA84DE002958A6 /* XLPopMenuViewSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLPopMenuViewSingleton.m; sourceTree = "<group>"; };
 		9D90EAA11CD92AC2000E826B /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		9D90EAA21CD92AC2000E826B /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		9DEADF661CCEC5F1009FB7DF /* Rendevent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rendevent.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,20 +211,19 @@
 			name = CLPopView;
 			sourceTree = "<group>";
 		};
-		9D71ADE81CD94B6B002958A6 /* PopMenuView */ = {
+		9D71ADED1CDA84DE002958A6 /* PopMenuView */ = {
 			isa = PBXGroup;
 			children = (
-				9D71ADE01CD94B6B002958A6 /* XLPopMenuView.h */,
-				9D71ADE11CD94B6B002958A6 /* XLPopMenuView.m */,
-				9D71ADE21CD94B6B002958A6 /* XLMenuViewCell.h */,
-				9D71ADE31CD94B6B002958A6 /* XLMenuViewCell.m */,
-				9D71ADE41CD94B6B002958A6 /* XLPopMenuViewModel.h */,
-				9D71ADE51CD94B6B002958A6 /* XLPopMenuViewModel.m */,
-				9D71ADE61CD94B6B002958A6 /* XLPopMenuViewSingleton.h */,
-				9D71ADE71CD94B6B002958A6 /* XLPopMenuViewSingleton.m */,
+				9D71ADEE1CDA84DE002958A6 /* XLMenuViewCell.h */,
+				9D71ADEF1CDA84DE002958A6 /* XLMenuViewCell.m */,
+				9D71ADF01CDA84DE002958A6 /* XLPopMenuView.h */,
+				9D71ADF11CDA84DE002958A6 /* XLPopMenuView.m */,
+				9D71ADF21CDA84DE002958A6 /* XLPopMenuViewModel.h */,
+				9D71ADF31CDA84DE002958A6 /* XLPopMenuViewModel.m */,
+				9D71ADF41CDA84DE002958A6 /* XLPopMenuViewSingleton.h */,
+				9D71ADF51CDA84DE002958A6 /* XLPopMenuViewSingleton.m */,
 			);
-			name = PopMenuView;
-			path = ../../../../Downloads/PopMenu_QQ_Demo/PopMenu_QQ_Demo/PopMenuView;
+			path = PopMenuView;
 			sourceTree = "<group>";
 		};
 		9D90EAA01CD92A80000E826B /* UserProfile */ = {
@@ -310,10 +309,10 @@
 				9DF3B71C1CCF0BE000DFCF5C /* MySearchResultController.m */,
 				9DF3B7141CCEE77C00DFCF5C /* EventsViewController.h */,
 				9DF3B7151CCEE77C00DFCF5C /* EventsViewController.m */,
-				9D71ADE81CD94B6B002958A6 /* PopMenuView */,
 				9DF3B7171CCEE81F00DFCF5C /* RecomEventsController.h */,
 				9DF3B7181CCEE81F00DFCF5C /* RecomEventsController.m */,
 				9DF3B7231CCF362A00DFCF5C /* EventCell.h */,
+				9D71ADED1CDA84DE002958A6 /* PopMenuView */,
 				9DF3B7241CCF362A00DFCF5C /* EventCell.m */,
 				9DF3B73C1CD53A1300DFCF5C /* EventCellDetail.h */,
 				9DF3B73D1CD53A1300DFCF5C /* EventCellDetail.m */,
@@ -526,8 +525,8 @@
 				9DF3B7121CCEE73D00DFCF5C /* CarbonTabSwipeScrollView.m in Sources */,
 				9DF3B7791CD7381600DFCF5C /* UIView+SDExtension.m in Sources */,
 				9D71ADD31CD94029002958A6 /* settingPassWardViewController.m in Sources */,
-				9D71ADEC1CD94B6B002958A6 /* XLPopMenuViewSingleton.m in Sources */,
-				9D71ADEB1CD94B6B002958A6 /* XLPopMenuViewModel.m in Sources */,
+				9D71ADF91CDA84DE002958A6 /* XLPopMenuViewSingleton.m in Sources */,
+				9D71ADF81CDA84DE002958A6 /* XLPopMenuViewModel.m in Sources */,
 				9DF3B7711CD7381600DFCF5C /* README.md in Sources */,
 				9D71ADD91CD94168002958A6 /* LoginNaviBaseViewController.m in Sources */,
 				9D71ADDD1CD94660002958A6 /* CLPopViewController.m in Sources */,
@@ -536,10 +535,12 @@
 				9DF3B7251CCF362A00DFCF5C /* EventCell.m in Sources */,
 				9DF3B73B1CD1E36D00DFCF5C /* pinyin.c in Sources */,
 				9DEADF711CCEC5F1009FB7DF /* ViewController.m in Sources */,
+				9D71ADF71CDA84DE002958A6 /* XLPopMenuView.m in Sources */,
 				9DF3B72F1CCFFBA200DFCF5C /* MyEventsCell.m in Sources */,
 				9DF3B7781CD7381600DFCF5C /* SDCycleScrollView.m in Sources */,
 				9DF3B7281CCFF0EA00DFCF5C /* MyEventsViewController.m in Sources */,
 				9DF3B77E1CD8582300DFCF5C /* User.m in Sources */,
+				9D71ADF61CDA84DE002958A6 /* XLMenuViewCell.m in Sources */,
 				9DF3B7191CCEE81F00DFCF5C /* RecomEventsController.m in Sources */,
 				9D71ADD61CD94029002958A6 /* newPassWardViewController.m in Sources */,
 				9DF3B73E1CD53A1300DFCF5C /* EventCellDetail.m in Sources */,
@@ -548,7 +549,6 @@
 				9D71ADD41CD94029002958A6 /* settinhHeaderViewController.m in Sources */,
 				9DF3B7741CD7381600DFCF5C /* TAAnimatedDotView.m in Sources */,
 				9DF3B7761CD7381600DFCF5C /* TAPageControl.m in Sources */,
-				9D71ADE91CD94B6B002958A6 /* XLPopMenuView.m in Sources */,
 				9DEADF6B1CCEC5F1009FB7DF /* main.m in Sources */,
 				9DF3B7161CCEE77C00DFCF5C /* EventsViewController.m in Sources */,
 				9D71ADD11CD94029002958A6 /* MMZCViewController.m in Sources */,
@@ -562,7 +562,6 @@
 				9DF3B74D1CD5B4CD00DFCF5C /* EventInfoCellTableViewCell.m in Sources */,
 				9DF3B7101CCEE73D00DFCF5C /* CarbonSwipeRefresh.m in Sources */,
 				9DF3B73A1CD1E36D00DFCF5C /* ChineseString.m in Sources */,
-				9D71ADEA1CD94B6B002958A6 /* XLMenuViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

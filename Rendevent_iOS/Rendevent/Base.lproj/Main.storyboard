@@ -82,7 +82,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="MLf-Vy-nVI">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="MLf-Vy-nVI">
                                             <rect key="frame" x="19" y="8" width="50" height="50"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="StartTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybu-2b-8EK">
@@ -97,7 +97,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JeK-7H-tXt">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JeK-7H-tXt">
                                             <rect key="frame" x="260" y="8" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="52q-gv-tTW"/>
@@ -162,7 +162,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="179.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhg-nR-PYf">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhg-nR-PYf">
                                             <rect key="frame" x="89" y="8" width="59" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -171,13 +171,13 @@
                                                 <rect key="frame" x="89" y="22" width="59" height="21"/>
                                             </variation>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="PM9-PC-Nnz">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="PM9-PC-Nnz">
                                             <rect key="frame" x="19" y="8" width="50" height="50"/>
                                             <variation key="widthClass=compact" misplaced="YES">
                                                 <rect key="frame" x="21" y="23" width="50" height="50"/>
                                             </variation>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="44" translatesAutoresizingMaskIntoConstraints="NO" id="UzL-Lg-Jrb">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="44" translatesAutoresizingMaskIntoConstraints="NO" id="UzL-Lg-Jrb">
                                             <rect key="frame" x="260" y="8" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="KLz-D9-4Qf"/>
@@ -200,14 +200,11 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Zk-1C-mTk">
                                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                             <state key="normal" title="Enter Event"/>
-                                            <variation key="widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="252" y="131" width="117" height="30"/>
-                                            </variation>
                                             <connections>
                                                 <segue destination="Han-Oa-5dj" kind="show" id="Iel-9l-Zu8"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="StartTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aC-yO-2Ik">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="StartTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aC-yO-2Ik">
                                             <rect key="frame" x="89" y="37" width="59" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -216,7 +213,7 @@
                                                 <rect key="frame" x="89" y="46" width="59" height="21"/>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EndTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAE-ee-qhV">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="EndTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAE-ee-qhV">
                                             <rect key="frame" x="171" y="37" width="72" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -248,6 +245,8 @@
                                             <exclude reference="5Zk-1C-mTk"/>
                                         </mask>
                                         <mask key="constraints">
+                                            <exclude reference="jjD-XM-QhI"/>
+                                            <exclude reference="ycW-gl-gc0"/>
                                             <exclude reference="Bu4-4n-HGP"/>
                                             <exclude reference="w6d-dX-Ngu"/>
                                             <exclude reference="joC-mX-9K7"/>
@@ -258,8 +257,6 @@
                                             <exclude reference="BDf-bc-HpQ"/>
                                             <exclude reference="fqg-xH-XTm"/>
                                             <exclude reference="gfQ-Wa-ntX"/>
-                                            <exclude reference="jjD-XM-QhI"/>
-                                            <exclude reference="ycW-gl-gc0"/>
                                             <exclude reference="3Et-7W-Mcu"/>
                                             <exclude reference="WZa-nE-IPd"/>
                                             <exclude reference="dn8-dJ-ewy"/>
@@ -270,6 +267,8 @@
                                             <include reference="5Zk-1C-mTk"/>
                                         </mask>
                                         <mask key="constraints">
+                                            <include reference="jjD-XM-QhI"/>
+                                            <include reference="ycW-gl-gc0"/>
                                             <include reference="Bu4-4n-HGP"/>
                                             <include reference="w6d-dX-Ngu"/>
                                             <include reference="joC-mX-9K7"/>
@@ -280,8 +279,6 @@
                                             <include reference="BDf-bc-HpQ"/>
                                             <include reference="fqg-xH-XTm"/>
                                             <exclude reference="gfQ-Wa-ntX"/>
-                                            <include reference="jjD-XM-QhI"/>
-                                            <include reference="ycW-gl-gc0"/>
                                             <exclude reference="3Et-7W-Mcu"/>
                                             <exclude reference="WZa-nE-IPd"/>
                                             <include reference="dn8-dJ-ewy"/>
