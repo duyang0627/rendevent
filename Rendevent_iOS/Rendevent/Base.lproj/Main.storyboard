@@ -13,10 +13,12 @@
         <scene sceneID="Z1w-Ln-RzP">
             <objects>
                 <tabBarController storyboardIdentifier="Main Tab Manu" title="Main" id="vld-FM-J5n" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="fBn-pz-VIZ">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="fBn-pz-VIZ" customClass="MainTabBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.50347521551724139" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="Nhv-Rs-MwD" kind="relationship" relationship="viewControllers" id="UHy-pA-CGk"/>
@@ -515,11 +517,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brW-sQ-LSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="BnC-hw-4yg">
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" momentary="YES" id="BnC-hw-4yg">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
-                        <segment title="All"/>
+                        <segment title="" image="hamburger"/>
                         <segment title="Sports"/>
                         <segment title="Entertainment"/>
                         <segment title="Food"/>
@@ -532,7 +534,7 @@
                     </connections>
                 </segmentedControl>
             </objects>
-            <point key="canvasLocation" x="3485" y="-102"/>
+            <point key="canvasLocation" x="3334.5" y="-90"/>
         </scene>
         <!--Event Page-->
         <scene sceneID="VRj-Kg-IZn">
@@ -1168,7 +1170,9 @@
         <scene sceneID="VrZ-2S-aVN">
             <objects>
                 <navigationController title="EventsNav" automaticallyAdjustsScrollViewInsets="NO" id="Nhv-Rs-MwD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Events" id="CL1-cz-TSQ"/>
+                    <tabBarItem key="tabBarItem" title="Event" image="fire_02_2x" selectedImage="fire_02_2x" id="CL1-cz-TSQ">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-2"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0lr-cN-DD4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1288,7 +1292,9 @@
         <scene sceneID="Yjt-Nx-V55">
             <objects>
                 <navigationController title="MyEventsNav" id="Muw-kT-LZ7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="MyEvents" id="vig-kM-Y89"/>
+                    <tabBarItem key="tabBarItem" title="MyEvents" image="star_2x" id="vig-kM-Y89">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-2"/>
+                    </tabBarItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4wc-Gy-zNF">
@@ -1351,7 +1357,7 @@
         <scene sceneID="ruI-bJ-R7m">
             <objects>
                 <navigationController title="ContactsNav" id="dlY-Ob-Jje" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Contacts" id="B3h-mg-Lor"/>
+                    <tabBarItem key="tabBarItem" title="Contacts" image="speech_bubble_2x" id="B3h-mg-Lor"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="O71-g1-KPZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2218,7 +2224,7 @@
         <scene sceneID="yDe-g7-w3o">
             <objects>
                 <navigationController title="ProfileNav" id="hqQ-iZ-MG1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="mU2-T9-twE"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="cog_02_2x" id="mU2-T9-twE"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XC2-cB-Kye">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2239,5 +2245,10 @@
         <image name="4" width="30" height="30"/>
         <image name="44" width="30" height="30"/>
         <image name="Players" width="30" height="30"/>
+        <image name="cog_02_2x" width="26" height="26"/>
+        <image name="fire_02_2x" width="26" height="26"/>
+        <image name="hamburger" width="128" height="128"/>
+        <image name="speech_bubble_2x" width="26" height="26"/>
+        <image name="star_2x" width="26" height="26"/>
     </resources>
 </document>

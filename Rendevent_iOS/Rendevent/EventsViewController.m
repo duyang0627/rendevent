@@ -16,6 +16,7 @@
 {
     NSArray *items;
     NSArray *popupMenuItem;
+    NSArray *popupMenuImg;
     UISearchBar *searchBar;
     CarbonTabSwipeNavigation *carbonTabSwipeNavigation;
     MySearchResultController *resultController;
@@ -51,6 +52,7 @@
     
     items = @[@"Recommendation", @"Nearby", @"Soon"];
     popupMenuItem = @[@"New Event", @"Login", @"Search"];
+    popupMenuImg = @[@"plus_2x", @"house_2x", @"glass_2x"];
     
     carbonTabSwipeNavigation = [[CarbonTabSwipeNavigation alloc] initWithItems:items delegate:self];
     [carbonTabSwipeNavigation insertIntoRootViewController:self];
@@ -76,7 +78,7 @@
         _popupItemarr = [[NSMutableArray alloc] init];
         for (int i = 0; i < popupMenuItem.count; i++) {
             XLPopMenuViewModel *model = [[XLPopMenuViewModel alloc] init];
-            //            model.image = [self images][i]; //添加图片
+            model.image = popupMenuImg[i]; //添加图片
             model.title = popupMenuItem[i];
             [_popupItemarr addObject:model];
         }
