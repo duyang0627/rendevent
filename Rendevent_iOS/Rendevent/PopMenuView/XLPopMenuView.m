@@ -11,6 +11,7 @@
 #import "XLPopMenuViewModel.h"
 #import "XLPopMenuViewSingleton.h"
 #import "LoginNaviBaseViewController.h"
+#import "newEventController.h"
 
 #define CELLHEIGHT 40;
 
@@ -116,19 +117,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if(indexPath.row == 1)
-    {
-        MMZCViewController *login=[[MMZCViewController alloc]init];
-//        LoginNaviBaseViewController *nav=[[UINavigationController alloc]initWithRootViewController:login];
-//        NSDictionary *attributes=[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:248/255.0f green:144/255.0f blue:34/255.0f alpha:1],NSForegroundColorAttributeName,nil];
-//        [nav.navigationBar setTitleTextAttributes:attributes];
-//        [self.navigationController presentModalViewController:nav animated:YES];
+    if(indexPath.row == 0){
+        newEventController *newEvent = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"newEventViewController"];
         UIViewController *curtopviewcontroller = [self topViewController];
-//        UIViewController *parentController = [self.superview nextResponder];
+        [curtopviewcontroller.navigationController pushViewController:newEvent animated:YES];
+    }
+    
+    if(indexPath.row == 1){
+        MMZCViewController *login=[[MMZCViewController alloc]init];
+        UIViewController *curtopviewcontroller = [self topViewController];
         [curtopviewcontroller.navigationController pushViewController:login animated:YES];
     }
-    if (self.action)
-    {
+    if (self.action){
         self.action(indexPath.row);
     }
 }
