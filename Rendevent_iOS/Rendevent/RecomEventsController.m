@@ -58,17 +58,23 @@
     //initialize data modal
     currentCategoryIndex = 0;
     
-    eventsList = [NSMutableArray arrayWithCapacity:10];
-    Event *basketball = [Event initWithName:@"PlayBasketBall" WithCategory:1 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:basketball];
-    Event *ktv = [Event initWithName:@"KTV" WithCategory:2 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:ktv];
-    Event *hunan = [Event initWithName:@"Hunan" WithCategory:3 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:hunan];
-    Event *hike = [Event initWithName:@"Hiking!" WithCategory:4 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:hike];
-    Event *football = [Event initWithName:@"PlayFootball" WithCategory:1 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:football];
+//    eventsList = [NSMutableArray arrayWithCapacity:10];
+//    Event *basketball = [Event initWithName:@"PlayBasketBall" WithCategory:1 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+//    [eventsList addObject:basketball];
+//    Event *ktv = [Event initWithName:@"KTV" WithCategory:2 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+//    [eventsList addObject:ktv];
+//    Event *hunan = [Event initWithName:@"Hunan" WithCategory:3 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+//    [eventsList addObject:hunan];
+//    Event *hike = [Event initWithName:@"Hiking!" WithCategory:4 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+//    [eventsList addObject:hike];
+//    Event *football = [Event initWithName:@"PlayFootball" WithCategory:1 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+//    [eventsList addObject:football];
+    
+    //unarchieve data
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"EventList.ldata"];
+    eventsList = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
     
     cureventsList = [self filteringEventList:eventsList withCategory:currentCategoryIndex];
     
@@ -82,7 +88,7 @@
 -(NSMutableArray *)filteringEventList:(NSMutableArray*)eventList withCategory:(int)caIndex
 {
     NSMutableArray *newList = [NSMutableArray arrayWithCapacity:10];
-    for (Event* e in eventsList) {
+    for (Event* e in eventList) {
         if(e.category == caIndex || caIndex == 0)
             [newList addObject:e];
     }
