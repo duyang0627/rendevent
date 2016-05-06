@@ -47,9 +47,14 @@
   if ([self.startTimeField isFirstResponder])
   {
     self.startTimeField.text = [NSString stringWithFormat:@"%@", picker.date];
+    self.newevent.startTime = picker.date;
+    NSLog(@"start time is %@", self.newevent.startTime);
+    
   }
   if ([self.endTimeField isFirstResponder]) {
     self.endTimeField.text = [NSString stringWithFormat:@"%@", picker.date];
+    self.newevent.endTime = picker.date;
+    NSLog(@"end time is %@", self.newevent.endTime);
   }
   
 }
@@ -78,7 +83,6 @@
 - (IBAction)inputStartTime:(UITextField *)sender {
   self.newevent.startTime = [[NSDate alloc] init];
 
-  
 }
 
 
