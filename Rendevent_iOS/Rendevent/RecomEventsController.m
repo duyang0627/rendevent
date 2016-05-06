@@ -10,6 +10,7 @@
 #import "CarbonKit.h"
 #import "Event.h"
 #import "EventCell.h"
+#import "VOSegmentedControl.h"
 
 @interface RecomEventsController ()
 {
@@ -53,22 +54,42 @@
     
 //    [refresh addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     
-    self.tableView.tableHeaderView = CatigoriesSegs;
+//    CatigoriesSegs.tintColor = [UIColor clearColor];
+//    CatigoriesSegs.
+//    self.tableView.tableHeaderView = CatigoriesSegs;
+    
+    VOSegmentedControl *segctrl2 = [[VOSegmentedControl alloc] initWithSegments:@[@{@"image": @"sport", @"selectedImage": @"sport"},
+                                                                                  @{@"image": @"play", @"selectedImage": @"play"},
+                                                                                  @{@"image": @"food", @"selectedImage": @"food"},
+                                                                                  @{@"image": @"outdoor", @"selectedImage": @"outdoor"},
+                                                                                  @{@"image": @"study", @"selectedImage": @"study"},
+                                                                                  @{@"image": @"other", @"selectedImage": @"other"}]];
+    segctrl2.contentStyle = VOContentStyleImageAlone;
+    segctrl2.indicatorStyle = VOSegCtrlIndicatorStyleBottomLine;
+    segctrl2.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    segctrl2.allowNoSelection = YES;
+    
+    segctrl2.frame = CGRectMake(0, 0, self.view.frame.size.width, 40);
+    segctrl2.selectedTextFont = [UIFont systemFontOfSize:30];
+    segctrl2.indicatorThickness = 6;
+    segctrl2.indicatorCornerRadius = 3;
+    segctrl2.tag = 2;
+    self.tableView.tableHeaderView = segctrl2;
+    [self.view addSubview:segctrl2];
+//    [segctrl2 setIndexChangeBlock:^(NSInteger index) {
+//        NSLog(@"2: block --> %@", @(index));
+//    }];
+    [segctrl2 addTarget:self action:@selector(segmentCtrlValuechange:) forControlEvents:UIControlEventValueChanged];
     
     //initialize data modal
     currentCategoryIndex = 0;
+
     
-    eventsList = [NSMutableArray arrayWithCapacity:10];
-    Event *basketball = [Event initWithName:@"PlayBasketBall" WithCategory:1 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:basketball];
-    Event *ktv = [Event initWithName:@"KTV" WithCategory:2 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:ktv];
-    Event *hunan = [Event initWithName:@"Hunan" WithCategory:3 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:hunan];
-    Event *hike = [Event initWithName:@"Hiking!" WithCategory:4 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:hike];
-    Event *football = [Event initWithName:@"PlayFootball" WithCategory:1 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:football];
+    //unarchieve data
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"EventList.ldata"];
+    eventsList = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
     
     cureventsList = [self filteringEventList:eventsList withCategory:currentCategoryIndex];
     
@@ -79,10 +100,17 @@
 //    }
 }
 
+- (void)segmentCtrlValuechange: (VOSegmentedControl *)segmentCtrl{
+    currentCategoryIndex = segmentCtrl.selectedSegmentIndex + 1;
+    cureventsList = [self filteringEventList:eventsList withCategory:currentCategoryIndex];
+    
+    [self.tableView reloadData];
+}
+
 -(NSMutableArray *)filteringEventList:(NSMutableArray*)eventList withCategory:(int)caIndex
 {
     NSMutableArray *newList = [NSMutableArray arrayWithCapacity:10];
-    for (Event* e in eventsList) {
+    for (Event* e in eventList) {
         if(e.category == caIndex || caIndex == 0)
             [newList addObject:e];
     }
@@ -114,7 +142,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (selectIndex.row == indexPath.row && selectIndex!=nil) {
         if (isOpen) {
-            return 180;
+            return 309;
         }
         return 100;
     }
@@ -132,20 +160,19 @@
             cell.titleLabel.text = event.name;
             cell.startLabel.text = [self stringFromDate:event.startTime];
             cell.endLabel.text = [self stringFromDate:event.endTime];
+//            cell.eventImg.frame =  CGRectMake(23, 50,self.view.frame.size.width, 148);
         }
         else{
             cell = (EventCell * )[tableView dequeueReusableCellWithIdentifier:@"EventCell"];
             cell.titleLabel.text = event.name;
             cell.startLabel.text = [self stringFromDate:event.startTime];
             cell.endLabel.text = [self stringFromDate:event.endTime];
-            cell.hostImg.image = [UIImage imageNamed:@"4"];
         }
     }else{
         cell = (EventCell * )[tableView dequeueReusableCellWithIdentifier:@"EventCell"];
         cell.titleLabel.text = event.name;
         cell.startLabel.text = [self stringFromDate:event.startTime];
         cell.endLabel.text = [self stringFromDate:event.endTime];
-        cell.hostImg.image = [UIImage imageNamed:@"4"];
     }
     return cell;
 }

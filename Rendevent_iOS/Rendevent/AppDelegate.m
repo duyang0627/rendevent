@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Event.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self initialModalData];
     return YES;
 }
 
@@ -40,6 +42,41 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)initialModalData {
+    NSMutableArray *eventsList = [NSMutableArray arrayWithCapacity:10];
+    
+    Event *basketball = [Event initWithName:@"PlayBasketBall" WithCategory:1 WithDes:@"ARC Full court" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+    basketball.minimum = 5;
+    basketball.maximum = 15;
+    basketball.mini_age = 18;
+    basketball.max_age = 45;
+    basketball.host_Id = 0;
+    basketball.message_group_Id = 0;
+    basketball.status = ParticipantNeeded;
+    [eventsList addObject:basketball];
+    
+    Event *foottball = [Event initWithName:@"PlayFootBall" WithCategory:1 WithDes:@"Pavilion Full court" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+    foottball.minimum = 6;
+    foottball.maximum = 22;
+    foottball.mini_age = 22;
+    foottball.max_age = 33;
+    foottball.host_Id = 0;
+    foottball.message_group_Id = 0;
+    foottball.status = ParticipantNeeded;
+    [eventsList addObject:foottball];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"EventList.ldata"];
+    
+//    NSMutableArray *myObject=[NSMutableArray array];
+//    [myObject addObject:self.settings];
+    
+    BOOL res = [NSKeyedArchiver archiveRootObject:eventsList toFile:appFile];
+    
+//    NSMutableArray* myArray = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
 }
 
 @end

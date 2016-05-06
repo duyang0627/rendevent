@@ -9,6 +9,7 @@
 #import "MMZCHMViewController.h"
 #import "settingPassWardViewController.h"
 #import "MMZCViewController.h"
+#import "LayoutColor.h"
 
 
 
@@ -37,7 +38,7 @@
     
 //    self.view.backgroundColor=[UIColor colorWithRed:240/255.0f green:240/255.0f blue:240/255.0f alpha:1];
 //    
-   self.title=@"注册1/3";
+   self.title=@"Sign Up";
     self.navigationController.navigationBarHidden = NO;
     [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
    self.view.backgroundColor=[UIColor colorWithRed:240/255.0f green:240/255.0f blue:240/255.0f alpha:1];
@@ -60,7 +61,7 @@
 -(void)createTextFields
 {
     UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(30, 75, self.view.frame.size.width-90, 30)];
-    label.text=@"请输入您的手机号码";
+    label.text=@"Please enter number";
     label.textColor=[UIColor grayColor];
     label.textAlignment=UITextAlignmentLeft;
     label.font=[UIFont systemFontOfSize:13];
@@ -74,13 +75,13 @@
         bgView.backgroundColor=[UIColor whiteColor];
         [self.view addSubview:bgView];
         
-        phone=[self createTextFielfFrame:CGRectMake(100, 10, 200, 30) font:[UIFont systemFontOfSize:14] placeholder:@"11位手机号"];
+        phone=[self createTextFielfFrame:CGRectMake(100, 10, 200, 30) font:[UIFont systemFontOfSize:14] placeholder:@"(  )_ _"];
         phone.clearButtonMode = UITextFieldViewModeWhileEditing;
         phone.keyboardType=UIKeyboardTypeNumberPad;
   
         //phone.text=@"15527002684";
         
-        code=[self createTextFielfFrame:CGRectMake(100, 60, 90, 30) font:[UIFont systemFontOfSize:14]  placeholder:@"4位数字" ];
+        code=[self createTextFielfFrame:CGRectMake(100, 60, 90, 30) font:[UIFont systemFontOfSize:14]  placeholder:@"4 digits" ];
         code.clearButtonMode = UITextFieldViewModeWhileEditing;
         //code.text=@"mojun1992225";
         //密文样式
@@ -89,13 +90,13 @@
         
         
     UILabel *phonelabel=[[UILabel alloc]initWithFrame:CGRectMake(20, 12, 50, 25)];
-    phonelabel.text=@"手机号";
+    phonelabel.text=@"Cell Phone";
     phonelabel.textColor=[UIColor blackColor];
     phonelabel.textAlignment=UITextAlignmentLeft;
     phonelabel.font=[UIFont systemFontOfSize:14];
     
     UILabel *codelabel=[[UILabel alloc]initWithFrame:CGRectMake(20, 62, 50, 25)];
-    codelabel.text=@"验证码";
+    codelabel.text=@"Verificiation";
     codelabel.textColor=[UIColor blackColor];
     codelabel.textAlignment=UITextAlignmentLeft;
     codelabel.font=[UIFont systemFontOfSize:14];
@@ -104,7 +105,7 @@
     yzButton=[[UIButton alloc]initWithFrame:CGRectMake(bgView.frame.size.width-100-20, 62, 100, 30)];
     //yzButton.layer.cornerRadius=3.0f;
     //yzButton.backgroundColor=[UIColor colorWithRed:240/255.0f green:240/255.0f blue:240/255.0f alpha:1];
-    [yzButton setTitle:@"获取验证码" forState:UIControlStateNormal];
+    [yzButton setTitle:@"Get code" forState:UIControlStateNormal];
     [yzButton setTitleColor:[UIColor colorWithRed:248/255.0f green:144/255.0f blue:34/255.0f alpha:1] forState:UIControlStateNormal];
     yzButton.font=[UIFont systemFontOfSize:13];
     [yzButton addTarget:self action:@selector(getValidCode:) forControlEvents:UIControlEventTouchUpInside];
@@ -112,8 +113,8 @@
     
     UIImageView *line1=[self createImageViewFrame:CGRectMake(20, 50, bgView.frame.size.width-40, 1) imageName:nil color:[UIColor colorWithRed:180/255.0f green:180/255.0f blue:180/255.0f alpha:.3]];
     
-    UIButton *landBtn=[self createButtonFrame:CGRectMake(10, bgView.frame.size.height+bgView.frame.origin.y+30,self.view.frame.size.width-20, 37) backImageName:nil title:@"下一步" titleColor:[UIColor whiteColor]  font:[UIFont systemFontOfSize:17] target:self action:@selector(next)];
-    landBtn.backgroundColor=[UIColor colorWithRed:248/255.0f green:144/255.0f blue:34/255.0f alpha:1];
+    UIButton *landBtn=[self createButtonFrame:CGRectMake(10, bgView.frame.size.height+bgView.frame.origin.y+30,self.view.frame.size.width-20, 37) backImageName:nil title:@"Next" titleColor:[UIColor whiteColor]  font:[UIFont systemFontOfSize:17] target:self action:@selector(next)];
+    landBtn.backgroundColor=[LayoutColor secondBlueColor];
     landBtn.layer.cornerRadius=5.0f;
 
         
@@ -148,14 +149,14 @@
 - (void)reduceTime:(NSTimer *)codeTimer {
     self.timeCount--;
     if (self.timeCount == 0) {
-        [yzButton setTitle:@"重新获取验证码" forState:UIControlStateNormal];
+        [yzButton setTitle:@"Reget code" forState:UIControlStateNormal];
         [yzButton setTitleColor:[UIColor colorWithRed:248/255.0f green:144/255.0f blue:34/255.0f alpha:1] forState:UIControlStateNormal];
         UIButton *info = codeTimer.userInfo;
         info.enabled = YES;
         yzButton.userInteractionEnabled = YES;
         [self.timer invalidate];
     } else {
-        NSString *str = [NSString stringWithFormat:@"%lu秒后重新获取", self.timeCount];
+        NSString *str = [NSString stringWithFormat:@"%lu seconds later", self.timeCount];
         [yzButton setTitle:str forState:UIControlStateNormal];
         yzButton.userInteractionEnabled = NO;
         
