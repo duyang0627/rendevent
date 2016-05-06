@@ -142,7 +142,7 @@
             for (NSDictionary* commentDict in statusModel.commentList) {
                 NSString* to = commentDict[@"to"];
                 if (to.length != 0) {
-                    NSString* commentString = [NSString stringWithFormat:@"%@回复%@:%@",commentDict[@"from"],commentDict[@"to"],commentDict[@"content"]];
+                    NSString* commentString = [NSString stringWithFormat:@"%@TO%@:%@",commentDict[@"from"],commentDict[@"to"],commentDict[@"content"]];
                     LWTextStorage* commentTextStorage = [[LWTextStorage alloc] init];
                     commentTextStorage.text = commentString;
                     commentTextStorage.font = [UIFont systemFontOfSize:14.0f];

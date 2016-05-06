@@ -15,10 +15,10 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     NSArray *stringsToSort=[NSArray arrayWithObjects:
-                            @"￥hhh, .$",@" ￥Chin ese ",@"开源中国 ",@"www.oschina.net",
-                            @"开源技术",@"社区",@"开发者",@"传播",
-                            @"2014",@"a1",@"100",@"中国",@"暑假作业",
-                            @"键盘", @"鼠标",@"hello",@"world",@"b1",
+                            @"Victoria",@"Zoe ",@"Abigail",@"Wendy",
+                            @"Charlotte",@"Elsie",@"Florence",@"Gwendolyn",
+                            @"Hannah",@"Teresa",@"Sandy",@"Olga",@"Rebecca",
+                            @"May", @"Josephine",@"Judith",@"Lee",@"Madeline",
                             nil];
     
     self.indexArray = [ChineseString IndexArray:stringsToSort];

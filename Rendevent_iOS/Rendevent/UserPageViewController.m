@@ -78,7 +78,7 @@ const CGFloat kRefreshBoundary = 170.0f;
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     NSDictionary* attributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationController.navigationBar.titleTextAttributes = attributes;
-    self.navigationItem.title = @"朋友圈";
+    self.navigationItem.title = @"Activity History";
 }
 
 /****************************************************************************/
@@ -134,9 +134,9 @@ const CGFloat kRefreshBoundary = 170.0f;
 - (void)tableViewCell:(TableViewCell *)cell didClickedLinkWithData:(id)data {
     if ([data isKindOfClass:[CommentModel class]]) {
         CommentModel* commentModel = (CommentModel *)data;
-        self.commentView.placeHolder = [NSString stringWithFormat:@"回复%@:",commentModel.to];
+        self.commentView.placeHolder = [NSString stringWithFormat:@"TO%@:",commentModel.to];
         [self.commentView.textView becomeFirstResponder];
-        self.postComment.from = @"waynezxcv的粉丝";
+        self.postComment.from = @"waynezxcv's fan";
         self.postComment.to = commentModel.to;
         self.postComment.index = commentModel.index;
     } else {
@@ -149,9 +149,9 @@ const CGFloat kRefreshBoundary = 170.0f;
 
 - (void)tableViewCell:(TableViewCell *)cell didClickedCommentWithCellLayout:(CellLayout *)layout
           atIndexPath:(NSIndexPath *)indexPath {
-    self.commentView.placeHolder = @"评论";
+    self.commentView.placeHolder = @"Comment";
     [self.commentView.textView becomeFirstResponder];
-    self.postComment.from = @"Waynezxcv的粉丝";
+    self.postComment.from = @"Waynezxcv's fan";
     self.postComment.to = @"";
     self.postComment.index = indexPath.row;
 }
@@ -337,7 +337,7 @@ const CGFloat kRefreshBoundary = 170.0f;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MM月dd日 hh:mm"];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     });
     return dateFormatter;
 }
@@ -359,9 +359,9 @@ const CGFloat kRefreshBoundary = 170.0f;
     if (_fakeDatasource) {
         return _fakeDatasource;
     }
-    _fakeDatasource = @[@{@"name":@"SIZE潮流生活",
+    _fakeDatasource = @[@{@"name":@"Shopping in Outlets",
                           @"avatar":@"http://tp2.sinaimg.cn/1829483361/50/5753078359/1",
-                          @"content":@"近日[心]，adidas Originals为经典鞋款Stan Smith打造Primeknit版本，并带来全新的“OG”系列。简约的鞋身采用白色透气Primeknit针织材质制作，再将Stan Smith代表性的绿、红、深蓝三个元年色调融入到鞋舌和后跟点缀，最后搭载上米白色大底来保留其复古风味。据悉该鞋款将在今月登陆全球各大adidas Originals指定店舖。",
+                          @"content":@"Born on the courts, raised on the streets. The adidas Originals Superstar is a style staple for the ages.",
                           @"date":@"1459668442",
                           @"imgs":@[@"http://ww2.sinaimg.cn/mw690/6d0bb361gw1f2jim2hgxij20lo0egwgc.jpg",
                                     @"http://ww3.sinaimg.cn/mw690/6d0bb361gw1f2jim2hsg6j20lo0egwg2.jpg",
@@ -369,18 +369,18 @@ const CGFloat kRefreshBoundary = 170.0f;
                                     @"http://ww1.sinaimg.cn/mw690/6d0bb361gw1f2jim2hka3j20lo0egdhw.jpg",
                                     @"http://ww2.sinaimg.cn/mw690/6d0bb361gw1f2jim2hq61j20lo0eg769.jpg"],
                           @"statusID":@"1",
-                          @"commentList":@[@{@"from":@"SIZE潮流生活",
+                          @"commentList":@[@{@"from":@"Abigail",
                                              @"to":@"",
-                                             @"content":@"使用Gallop来快速构建图文混排界面。享受如丝般顺滑的滚动体验。"},
+                                             @"content":@"Very nice shoes"},
                                            @{@"from":@"waynezxcv",
-                                             @"to":@"SIZE潮流生活",
-                                             @"content":@"哈哈哈哈"},
-                                           @{@"from":@"SIZE潮流生活",
+                                             @"to":@"Abigail",
+                                             @"content":@"Thx"},
+                                           @{@"from":@"Abigail",
                                              @"to":@"waynezxcv",
-                                             @"content":@"nice~使用Gallop。支持异步绘制，让滚动如丝般顺滑。并且支持图文混排[face]和点击链接#Gallop#"}]},
-                        @{@"name":@"妖妖小精",
+                                             @"content":@"nice~ next time go together"}]},
+                        @{@"name":@"Trip to Vegas",
                           @"avatar":@"http://tp2.sinaimg.cn/2185608961/50/5714822219/0",
-                          @"content":@"出国留学的儿子为思念自己的家人们寄来一个用自己照片做成的人形立牌",
+                          @"content":@"This trip is very nice. We had a lot of fun",
                           @"date":@"1459668442",
                           @"imgs":@[@"http://ww3.sinaimg.cn/mw690/8245bf01jw1f2jhh2ohanj20jg0yk418.jpg",
                                     @"http://ww4.sinaimg.cn/mw690/8245bf01jw1f2jhh34q9rj20jg0px77y.jpg",
@@ -392,9 +392,9 @@ const CGFloat kRefreshBoundary = 170.0f;
                                     @"http://ww4.sinaimg.cn/mw690/8245bf01jw1f2jhh2mgkgj20jg0pxn2z.jpg"],
                           @"statusID":@"2",
                           @"commentList":@[@{@"from":@"waynezxcv",
-                                             @"to":@"妖妖小精",
+                                             @"to":@"Abigail",
                                              @"content":@"[心]"}]},
-                        @{@"name":@"Instagram热门",
+                        @{@"name":@"Photograph",
                           @"avatar":@"http://tp4.sinaimg.cn/5074408479/50/5706839595/0",
                           @"content":@"Austin Butler & Vanessa Hudgens  想试试看扑到一个一米八几的人怀里是有多舒服[心]",
                           @"date":@"1459668442",
@@ -407,12 +407,6 @@ const CGFloat kRefreshBoundary = 170.0f;
                                     @"http://ww2.sinaimg.cn/mw690/005xpHs3gw1f2jg17c5urj30b40ghjto.jpg",
                                     @"http://ww4.sinaimg.cn/mw690/005xpHs3gw1f2jg18p02pj30b40fdmz4.jpg"],
                           @"statusID":@"3"},
-                        @{@"name":@"头条新闻",
-                          @"avatar":@"http://tp1.sinaimg.cn/1618051664/50/5735009977/0",
-                          @"content":@"#万象# 【熊孩子！4名小学生铁轨上设障碍物逼停火车】4名小学生打赌，1人认为火车会将石头碾成粉末，其余3人不信，认为只会碾碎，于是他们将道碴摆放在铁轨上。火车司机发现前方不远处的铁轨上，摆放了影响行车安全的障碍物，于是紧急采取制动，列车中途停车13分钟。O4名学生铁轨上设障碍物逼停火车#waynezxcv# nice",
-                          @"date":@"1459668442",
-                          @"imgs":@[@"http://ww2.sinaimg.cn/mw690/60718250jw1f2jg46smtmj20go0go77r.jpg"],
-                          @"statusID":@"4"},
                         @{@"name":@"优酷",
                           @"avatar":@"http://tp2.sinaimg.cn/1642904381/50/5749093752/1",
                           @"content":@"1000杯拿铁，幻化成一生挚爱。两个人，不远万里来相遇、相识、相知，直至相守，小小拿铁却是大大的世界。 L如何用 1000 杯拿铁表达爱",

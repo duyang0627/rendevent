@@ -355,6 +355,8 @@
 		9DF3B76F1CD7381600DFCF5C /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		9DF3B77C1CD8582300DFCF5C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		9DF3B77D1CD8582300DFCF5C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		C40DCF491CDB236A003D6231 /* newEventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newEventController.h; sourceTree = "<group>"; };
+		C40DCF4A1CDB236A003D6231 /* newEventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newEventController.m; sourceTree = "<group>"; };
 		C4F452D61CDAB44A0041B038 /* newEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newEvent.h; sourceTree = "<group>"; };
 		C4F452D71CDAB44A0041B038 /* newEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newEvent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -846,7 +848,7 @@
 				TargetAttributes = {
 					9DEADF651CCEC5F1009FB7DF = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 98XY3Z9JD8;
+						DevelopmentTeam = VZQHBXV4R6;
 					};
 				};
 			};
@@ -1116,7 +1118,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Rendevent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liao.Rendevent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Rendevent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1130,7 +1132,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Rendevent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liao.Rendevent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Rendevent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
