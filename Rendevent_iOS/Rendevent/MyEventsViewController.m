@@ -89,7 +89,7 @@
     UIImage* myImage = [UIImage imageNamed:@"dahuangmao-6.png"];
     UIImageView* imgView = [[UIImageView alloc] initWithImage:myImage];
     CGFloat Height = self.navigationController.navigationBar.frame.size.height;
-    [imgView setFrame:CGRectMake(124.0f, imgView.frame.origin.y, Height, Height)];
+    [imgView setFrame:CGRectMake(104.0f, imgView.frame.origin.y, Height, Height)];
     [self.navigationController.navigationBar addSubview:imgView];
     
     carbonTabSwipeNavigation.toolbar.translucent = NO;

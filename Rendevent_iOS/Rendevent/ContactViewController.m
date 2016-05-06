@@ -40,7 +40,7 @@
     UIImage* myImage = [UIImage imageNamed:@"dahuangmao-16.png"];
     UIImageView* imgView = [[UIImageView alloc] initWithImage:myImage];
     CGFloat Height = self.navigationController.navigationBar.frame.size.height;
-    [imgView setFrame:CGRectMake(134.0f, imgView.frame.origin.y, Height, Height)];
+    [imgView setFrame:CGRectMake(114.0f, imgView.frame.origin.y, Height, Height)];
     [self.navigationController.navigationBar addSubview:imgView];
 }
 
