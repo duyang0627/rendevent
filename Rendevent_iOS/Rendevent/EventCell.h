@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *eventImg;
 @property (weak, nonatomic) IBOutlet UILabel *attendNum;
 @property (weak, nonatomic) IBOutlet UILabel *capacityNum;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 
 
 @end

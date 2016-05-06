@@ -37,6 +37,8 @@
   [datePicker setTimeZone:timeZone];
   self.startTimeField.inputView = datePicker;
   self.endTimeField.inputView = datePicker;
+//    self.navigationItem.rightBarButtonItem =
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(rightBarAction)];
 }
 
 - (IBAction)dateChanged:(id)sender
@@ -115,7 +117,17 @@
   
 }  
 
-
+-(void)rightBarAction
+{
+    NSLog(@"save event.");
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"EventList.ldata"];
+    NSMutableArray* eventsList = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
+    [eventsList addObject:self.newevent];
+    BOOL res = [NSKeyedArchiver archiveRootObject:eventsList toFile:appFile];
+    
+}
 
 -(IBAction)backgroundTap:(id)sender
 {
@@ -127,8 +139,6 @@
   [self.minAgeField resignFirstResponder];
   [self.maxAgeField resignFirstResponder];
   [self.desField resignFirstResponder];
-
- 
 }
 
 @end

@@ -86,6 +86,17 @@
     currentCategoryIndex = 0;
 
     
+    
+    
+//    //initialize cell extendable statue array
+//    cellStatus = [[NSMutableArray alloc] init];
+//    for (int i = 0; [cureventsList count]; i++) {
+//        [cellStatus addObject:[NSNumber numberWithBool:NO]];
+//    }
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"enter event list");
     //unarchieve data
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -93,12 +104,7 @@
     eventsList = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
     
     cureventsList = [self filteringEventList:eventsList withCategory:currentCategoryIndex];
-    
-//    //initialize cell extendable statue array
-//    cellStatus = [[NSMutableArray alloc] init];
-//    for (int i = 0; [cureventsList count]; i++) {
-//        [cellStatus addObject:[NSNumber numberWithBool:NO]];
-//    }
+    [self.tableView reloadData];
 }
 
 - (void)segmentCtrlValuechange: (VOSegmentedControl *)segmentCtrl{
@@ -187,15 +193,12 @@
             cell.titleLabel.text = event.name;
             cell.startLabel.text = [self stringFromDate:event.startTime];
             cell.endLabel.text = [self stringFromDate:event.endTime];
-//            cell.eventImg.frame =  CGRectMake(23, 50,self.view.frame.size.width, 148);
-//            cell.eventPic.userInteractionEnabled = NO;
             int index = arc4random()%17 + 1;
             NSString *str=[NSString stringWithFormat:@"eventpic%d", index];
             UIImage* img = [UIImage imageNamed:str];
-//            cell.typeLabel.text = [self getTypeName:[event.categorye intValue]];
             cell.eventImg.image = img;
-            
-//            [cell.eventPic setImage:img forState:forState:UIControlStateNormal];
+            cell.attendNum.text = [NSString stringWithFormat: @"%d", event.minimum];
+            cell.capacityNum.text = [NSString stringWithFormat: @"%d", event.maximum];
             return cell;
         }
         else{
@@ -203,6 +206,10 @@
             cell.titleLabel.text = event.name;
             cell.startLabel.text = [self stringFromDate:event.startTime];
             cell.endLabel.text = [self stringFromDate:event.endTime];
+            int index = arc4random()%17 + 1;
+            NSString *str=[NSString stringWithFormat:@"eventpic%d", index];
+            UIImage* img = [UIImage imageNamed:str];
+            cell.eventImg.image = img;
             return cell;
         }
     }else{
@@ -210,6 +217,10 @@
         cell.titleLabel.text = event.name;
         cell.startLabel.text = [self stringFromDate:event.startTime];
         cell.endLabel.text = [self stringFromDate:event.endTime];
+        int index = arc4random()%17 + 1;
+        NSString *str=[NSString stringWithFormat:@"eventpic%d", index];
+        UIImage* img = [UIImage imageNamed:str];
+        cell.eventImg.image = img;
         return cell;
     }
     return NULL;
