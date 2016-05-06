@@ -128,7 +128,7 @@
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     //zzz表示时区，zzz可以删除，这样返回的日期字符将不包含时区信息。
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss zzz"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSString *destDateString = [dateFormatter stringFromDate:date];
 //    [dateFormatter release];
     return destDateString;
@@ -199,6 +199,14 @@
             cell.eventImg.image = img;
             cell.attendNum.text = [NSString stringWithFormat: @"%d", event.minimum];
             cell.capacityNum.text = [NSString stringWithFormat: @"%d", event.maximum];
+            index = arc4random()%9 + 1;
+            str=[NSString stringWithFormat:@"user%d", index];
+            UIImage* imgh = [UIImage imageNamed:str];
+            cell.hostImg.image = imgh;
+            CALayer *imagelayer = [cell.hostImg layer];
+            [imagelayer setMasksToBounds:YES];
+            [imagelayer setCornerRadius:6.0];
+            cell.typeLabel.text = [self getTypeName:event.categorye];
             return cell;
         }
         else{
@@ -210,6 +218,9 @@
             NSString *str=[NSString stringWithFormat:@"eventpic%d", index];
             UIImage* img = [UIImage imageNamed:str];
             cell.eventImg.image = img;
+            cell.attendNum = [NSString stringWithFormat: @"%d", event.minimum];
+            cell.capacityNum = [NSString stringWithFormat: @"%d", event.maximum];
+            cell.typeLabel.text = [self getTypeName:event.categorye];
             return cell;
         }
     }else{
@@ -221,6 +232,7 @@
         NSString *str=[NSString stringWithFormat:@"eventpic%d", index];
         UIImage* img = [UIImage imageNamed:str];
         cell.eventImg.image = img;
+        cell.typeLabel.text = [self getTypeName:event.categorye];
         return cell;
     }
     return NULL;
@@ -263,5 +275,18 @@
 //- (void)refresh:(id)sender {
 //    [refresh endRefreshing];
 //}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"goEventPage"]) 
+    {
+        EventCellDetail * cell = (EventCellDetail *)[[sender superview] superview];
+        NSIndexPath * path = [self.tableView indexPathForCell:cell];
+        Event *event = [cureventsList objectAtIndex:path.row];
+        id theSegue = segue.destinationViewController;
+        [theSegue setValue:event forKey:@"curEvent"];
+        [theSegue setValue:cell.eventImg.image forKey:@"eventImg"];
+        [theSegue setValue:cell.hostImg.image forKey:@"hostImg"];
+    }
+}
 
 @end

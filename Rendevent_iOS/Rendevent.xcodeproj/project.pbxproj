@@ -848,7 +848,7 @@
 				TargetAttributes = {
 					9DEADF651CCEC5F1009FB7DF = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = VZQHBXV4R6;
+						DevelopmentTeam = 98XY3Z9JD8;
 					};
 				};
 			};
@@ -1118,7 +1118,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Rendevent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Rendevent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leo.Rendevent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1132,7 +1132,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Rendevent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Rendevent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leo.Rendevent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

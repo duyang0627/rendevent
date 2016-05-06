@@ -8,6 +8,7 @@
 #import "CellLayout.h"
 #import "CommentView.h"
 #import "CommentModel.h"
+#import "LayoutColor.h"
 
 @interface UserPageViewController () <UITableViewDataSource,UITableViewDelegate,TableViewCellDelegate>
 
@@ -75,7 +76,8 @@ const CGFloat kRefreshBoundary = 170.0f;
 - (void)setup {
     self.needRefresh = YES;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [LayoutColor mainColor];
     NSDictionary* attributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
     self.navigationController.navigationBar.titleTextAttributes = attributes;
     self.navigationItem.title = @"Activity History";

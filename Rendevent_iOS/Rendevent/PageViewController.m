@@ -20,6 +20,10 @@
 
 @implementation PageViewController
 
+@synthesize curEvent;
+@synthesize eventImg;
+@synthesize hostImg;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -32,6 +36,7 @@
 //    [self.view addSubview:self.collectionView];
     
 //    [self.memberCollection registerClass:[MemberListCell class] forCellWithReuseIdentifier:@"memberCell"];
+    self.automaticallyAdjustsScrollViewInsets =NO;
     [self.memberCollection registerNib:[UINib nibWithNibName:@"MemberListCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"memberCell"];
 //    _memberCollection.backgroundColor = [UIColor clearColor];
     
@@ -43,14 +48,63 @@
     _PhotoCellView.backgroundColor = [UIColor greenColor];
     [self initCycleScrollView];
     
+    //initial data
+    _titleLabel.text = curEvent.name;
+    _typeLabel.text = [self getTypeName:curEvent.categorye];
+    _startLabel.text = [self stringFromDate:curEvent.startTime];
+    _endLabel.text = [self stringFromDate:curEvent.endTime];
+    _atendNum.text = [NSString stringWithFormat: @"%ld", (long)curEvent.minimum];
+    _capacityNum.text = [NSString stringWithFormat: @"%ld", (long)curEvent.maximum];
+    _eventImgview.image = eventImg;
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 1;
+}
+
+- (NSString *)stringFromDate:(NSDate *)date{
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    //zzz表示时区，zzz可以删除，这样返回的日期字符将不包含时区信息。
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSString *destDateString = [dateFormatter stringFromDate:date];
+    //    [dateFormatter release];
+    return destDateString;
+}
+
+- (NSString *)getTypeName:(int)category {
+    switch (category) {
+        case 1:
+            return @"SPORT";
+            break;
+        case 2:
+            return @"ENTERTAIMNET";
+            break;
+        case 3:
+            return @"FOOD";
+            break;
+        case 4:
+            return @"OUTDOOR";
+            break;
+        case 5:
+            return @"STUDY";
+            break;
+        case 6:
+            return @"OTHER";
+            break;
+        default:
+            break;
+    }
+    return @"wrong type";
 }
 
 - (void)initCycleScrollView{
     
-    UIImage *image1 = [UIImage imageNamed:@"first1.jpg"];
-    UIImage *image2 = [UIImage imageNamed:@"first2.jpg"];
-    UIImage *image3 = [UIImage imageNamed:@"first3.jpg"];
-    UIImage *image4 = [UIImage imageNamed:@"first4.jpg"];
+    UIImage *image1 = [UIImage imageNamed:@"eventpic4.jpg"];
+    UIImage *image2 = [UIImage imageNamed:@"eventpic6.jpg"];
+    UIImage *image3 = [UIImage imageNamed:@"eventpic9.jpg"];
+    UIImage *image4 = [UIImage imageNamed:@"eventpic14.jpg"];
     NSArray *array = [NSArray arrayWithObjects:image1,image2,image3,image4, nil];
     
     SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 170) imagesGroup:array];
@@ -90,10 +144,22 @@
 //
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MemberListCell *cell = [collectionView  dequeueReusableCellWithReuseIdentifier:@"memberCell" forIndexPath:indexPath];
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"5Stars" ofType:@"png"];
-//    cell.memberImg.image = [UIImage imageWithContentsOfFile:path];
-    [cell setImageForCellWithIndexPath:@"44"];
+    if (indexPath.row == 0) {
+        cell.memberImg.image = hostImg;
+    }
+    else{
+//        int index = arc4random()%9 + 1;
+        NSString *str=[NSString stringWithFormat:@"user%d", indexPath.row];
+        [cell setImageForCellWithIndexPath:str];
+    }
     return cell;
+}
+- (IBAction)JoinEvent:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@""
+                                                    message:@"Welcom !"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"YES" otherButtonTitles:nil];
+    [alert show];
 }
 
 //#pragma mark 触摸背景来关闭虚拟键盘

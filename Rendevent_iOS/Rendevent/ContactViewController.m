@@ -37,6 +37,11 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = color;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    UIImage* myImage = [UIImage imageNamed:@"dahuangmao-16.png"];
+    UIImageView* imgView = [[UIImageView alloc] initWithImage:myImage];
+    CGFloat Height = self.navigationController.navigationBar.frame.size.height;
+    [imgView setFrame:CGRectMake(134.0f, imgView.frame.origin.y, Height, Height)];
+    [self.navigationController.navigationBar addSubview:imgView];
 }
 
 
