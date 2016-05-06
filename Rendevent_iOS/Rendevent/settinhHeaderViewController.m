@@ -8,6 +8,8 @@
 
 #import "settinhHeaderViewController.h"
 #import "MMZCViewController.h"
+#import "LayoutColor.h"
+
 @interface settinhHeaderViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate>
 {
     UIView *bgView;
@@ -23,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title=@"注册3/3";
+    self.title=@"Sign Up";
     self.view.backgroundColor=[UIColor colorWithRed:240/255.0f green:240/255.0f blue:240/255.0f alpha:1];
     UIBarButtonItem *addBtn = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(clickaddBtn)];
     [addBtn setImage:[UIImage imageNamed:@"goback_back_orange_on"]];
@@ -43,13 +45,13 @@
     bgView.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:bgView];
     
-    username=[self createTextFielfFrame:CGRectMake(10, 10, self.view.frame.size.width-20, 30) font:[UIFont systemFontOfSize:14] placeholder:@"请输入昵称"];
+    username=[self createTextFielfFrame:CGRectMake(10, 10, self.view.frame.size.width-20, 30) font:[UIFont systemFontOfSize:14] placeholder:@"User name"];
     username.textAlignment=UITextAlignmentCenter;
     username.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     
-    UIButton *landBtn=[self createButtonFrame:CGRectMake(10, bgView.frame.size.height+bgView.frame.origin.y+30,self.view.frame.size.width-20, 37) backImageName:nil title:@"完成" titleColor:[UIColor whiteColor]  font:[UIFont systemFontOfSize:17] target:self action:@selector(landClick)];
-    landBtn.backgroundColor=[UIColor colorWithRed:248/255.0f green:144/255.0f blue:34/255.0f alpha:1];
+    UIButton *landBtn=[self createButtonFrame:CGRectMake(10, bgView.frame.size.height+bgView.frame.origin.y+30,self.view.frame.size.width-20, 37) backImageName:nil title:@"Finish" titleColor:[UIColor whiteColor]  font:[UIFont systemFontOfSize:17] target:self action:@selector(landClick)];
+    landBtn.backgroundColor=[LayoutColor secondBlueColor];
     landBtn.layer.cornerRadius=5.0f;
     
     [bgView addSubview:username];
@@ -144,7 +146,7 @@
     [self.view addSubview:_head];
     
     UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake((self.view.frame.size.width-80)/2, 180, 80, 80)];
-    label.text=@"点击设置头像";
+    label.text=@"Edit Profile Picture";
     label.textColor=[UIColor whiteColor];
     label.font=[UIFont systemFontOfSize:13];
     [self.view addSubview:label];

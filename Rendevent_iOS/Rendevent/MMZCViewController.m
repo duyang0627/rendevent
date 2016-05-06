@@ -10,6 +10,7 @@
 #import "forgetPassWardViewController.h"
 #import "AppDelegate.h"
 #import "MMZCHMViewController.h"
+#import "LayoutColor.h"
 
 
 
@@ -53,44 +54,20 @@
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(selectLeftAction:)];
     self.navigationItem.leftItemsSupplementBackButton = YES;
     
-    self.view.backgroundColor=[UIColor colorWithRed:240/255.0f green:240/255.0f blue:240/255.0f alpha:1];
+    self.view.backgroundColor=[LayoutColor mainColor];
     //设置NavigationBar背景颜色
     View=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     //View.backgroundColor=[UIColor redColor];
     View.image=[UIImage imageNamed:@"bg4"];
     [self.view addSubview:View];
     
-    self.title=@"登陆";
-//    UIBarButtonItem *addBtn = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(clickaddBtn:)];
-//    [addBtn setImage:[UIImage imageNamed:@"goback_back_orange_on"]];
-//    [addBtn setImageInsets:UIEdgeInsetsMake(0, -15, 0, 15)];
-//    addBtn.tintColor=[UIColor colorWithRed:248/255.0f green:144/255.0f blue:34/255.0f alpha:1];
-//    [self.navigationItem setLeftBarButtonItem:addBtn];
+    self.title=@"Sign in";
     
-    UIBarButtonItem *right=[[UIBarButtonItem alloc]initWithTitle:@"注册" style:UIBarButtonItemStylePlain target:self action:@selector(zhuce)];
+    UIBarButtonItem *right=[[UIBarButtonItem alloc]initWithTitle:@"Sign up" style:UIBarButtonItemStylePlain target:self action:@selector(zhuce)];
 //    right.tintColor=[UIColor colorWithRed:248/255.0f green:144/255.0f blue:34/255.0f alpha:1];
     right.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem=right;
    
-    //为了显示背景图片自定义navgationbar上面的三个按钮
-//    UIButton *but =[[UIButton alloc]initWithFrame:CGRectMake(5, 27, 35, 35)];
-//    [but setImage:[UIImage imageNamed:@"goback_back_orange_on"] forState:UIControlStateNormal];
-//    [but addTarget:self action:@selector(clickaddBtn:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:but];
-//    
-//    UIButton *zhuce =[[UIButton alloc]initWithFrame:CGRectMake(self.view.frame.size.width-60, 30, 50, 30)];
-//    [zhuce setTitle:@"注册" forState:UIControlStateNormal];
-//    [zhuce setTitleColor:[UIColor colorWithRed:248/255.0f green:144/255.0f blue:34/255.0f alpha:1] forState:UIControlStateNormal];
-//    zhuce.font=[UIFont systemFontOfSize:17];
-//    [zhuce addTarget:self action:@selector(zhuce) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:zhuce];
-//    
-//    
-//    UILabel *lanel=[[UILabel alloc]initWithFrame:CGRectMake((self.view.frame.size.width-30)/2, 30, 50, 30)];
-//    lanel.text=@"登录";
-//    lanel.textColor=[UIColor colorWithRed:248/255.0f green:144/255.0f blue:34/255.0f alpha:1];
-//    [self.view addSubview:lanel];
-
     
     [self createButtons];
     [self createImageViews];
@@ -110,7 +87,7 @@
 -(void)createLabel
 {
     UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake((self.view.frame.size.width-140)/2, 390, 140, 21)];
-    label.text=@"第三方账号快速登录";
+    label.text=@"Sign in with other account";
     label.textColor=[UIColor grayColor];
     label.textAlignment=UITextAlignmentCenter;
     label.font=[UIFont systemFontOfSize:14];
@@ -126,12 +103,12 @@
     bgView.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:bgView];
     
-    user=[self createTextFielfFrame:CGRectMake(60, 10, 271, 30) font:[UIFont systemFontOfSize:14] placeholder:@"请输入您手机号码"];
+    user=[self createTextFielfFrame:CGRectMake(60, 10, 271, 30) font:[UIFont systemFontOfSize:14] placeholder:@"Enter Phone Number"];
     //user.text=@"13419693608";
     user.keyboardType=UIKeyboardTypeNumberPad;
     user.clearButtonMode = UITextFieldViewModeWhileEditing;
    
-    pwd=[self createTextFielfFrame:CGRectMake(60, 60, 271, 30) font:[UIFont systemFontOfSize:14]  placeholder:@"密码" ];
+    pwd=[self createTextFielfFrame:CGRectMake(60, 60, 271, 30) font:[UIFont systemFontOfSize:14]  placeholder:@"Password" ];
     pwd.clearButtonMode = UITextFieldViewModeWhileEditing;
     //pwd.text=@"123456";
     //密文样式
@@ -188,14 +165,14 @@
 
 -(void)createButtons
 {
-    UIButton *landBtn=[self createButtonFrame:CGRectMake(10, 190, self.view.frame.size.width-20, 37) backImageName:nil title:@"登录" titleColor:[UIColor whiteColor]  font:[UIFont systemFontOfSize:19] target:self action:@selector(landClick)];
-    landBtn.backgroundColor=[UIColor colorWithRed:248/255.0f green:144/255.0f blue:34/255.0f alpha:1];
+    UIButton *landBtn=[self createButtonFrame:CGRectMake(10, 190, self.view.frame.size.width-20, 37) backImageName:nil title:@"Sing In" titleColor:[UIColor whiteColor]  font:[UIFont systemFontOfSize:19] target:self action:@selector(landClick)];
+    landBtn.backgroundColor=[LayoutColor secondBlueColor];
     landBtn.layer.cornerRadius=5.0f;
     
-    UIButton *newUserBtn=[self createButtonFrame:CGRectMake(5, 235, 70, 30) backImageName:nil title:@"快速注册" titleColor:[UIColor grayColor] font:[UIFont systemFontOfSize:13] target:self action:@selector(registration:)];
+    UIButton *newUserBtn=[self createButtonFrame:CGRectMake(5, 235, 130, 30) backImageName:nil title:@"Create an account" titleColor:[UIColor grayColor] font:[UIFont systemFontOfSize:13] target:self action:@selector(registration:)];
     //newUserBtn.backgroundColor=[UIColor lightGrayColor];
     
-    UIButton *forgotPwdBtn=[self createButtonFrame:CGRectMake(self.view.frame.size.width-75, 235, 60, 30) backImageName:nil title:@"找回密码" titleColor:[UIColor grayColor] font:[UIFont systemFontOfSize:13] target:self action:@selector(fogetPwd:)];
+    UIButton *forgotPwdBtn=[self createButtonFrame:CGRectMake(self.view.frame.size.width-125, 235, 110, 30) backImageName:nil title:@"Forgot Password" titleColor:[UIColor grayColor] font:[UIFont systemFontOfSize:13] target:self action:@selector(fogetPwd:)];
     //fogotPwdBtn.backgroundColor=[UIColor lightGrayColor];
   
     

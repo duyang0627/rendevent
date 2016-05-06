@@ -78,7 +78,7 @@
         _popupItemarr = [[NSMutableArray alloc] init];
         for (int i = 0; i < popupMenuItem.count; i++) {
             XLPopMenuViewModel *model = [[XLPopMenuViewModel alloc] init];
-            model.image = popupMenuImg[i]; //添加图片
+            model.image = popupMenuImg  [i]; //添加图片
             model.title = popupMenuItem[i];
             [_popupItemarr addObject:model];
         }

@@ -9,6 +9,8 @@
 #import "newPassWardViewController.h"
 #import "MMZCViewController.h"
 #import "forgetPassWardViewController.h"
+#import "LayoutColor.h"
+
 @interface newPassWardViewController ()
 {
     UIView *bgView;
@@ -24,7 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title=@"找回密码2/2";
+    self.title=@"Find Password";
     self.view.backgroundColor=[UIColor colorWithRed:240/255.0f green:240/255.0f blue:240/255.0f alpha:1];
     UIBarButtonItem *addBtn = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(clickaddBtn)];
     [addBtn setImage:[UIImage imageNamed:@"goback_back_orange_on"]];
@@ -38,7 +40,7 @@
 -(void)createTextFields
 {
     UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(30, 75, self.view.frame.size.width-90, 30)];
-    label.text=@"请设置新的密码";
+    label.text=@"New Password";
     label.textColor=[UIColor grayColor];
     label.textAlignment=UITextAlignmentLeft;
     label.font=[UIFont systemFontOfSize:13];
@@ -50,19 +52,19 @@
     bgView.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:bgView];
     
-    passward=[self createTextFielfFrame:CGRectMake(100, 10, 200, 30) font:[UIFont systemFontOfSize:14] placeholder:@"6-20位字母或数字"];
+    passward=[self createTextFielfFrame:CGRectMake(100, 10, 200, 30) font:[UIFont systemFontOfSize:14] placeholder:@"6~10 alphanumerical charactors"];
     passward.clearButtonMode = UITextFieldViewModeWhileEditing;
     passward.secureTextEntry=YES;
     
     UILabel *phonelabel=[[UILabel alloc]initWithFrame:CGRectMake(20, 12, 50, 25)];
-    phonelabel.text=@"密码";
+    phonelabel.text=@"Password";
     phonelabel.textColor=[UIColor blackColor];
     phonelabel.textAlignment=UITextAlignmentLeft;
     phonelabel.font=[UIFont systemFontOfSize:14];
     
     
-    UIButton *landBtn=[self createButtonFrame:CGRectMake(10, bgView.frame.size.height+bgView.frame.origin.y+30,self.view.frame.size.width-20, 37) backImageName:nil title:@"完成" titleColor:[UIColor whiteColor]  font:[UIFont systemFontOfSize:17] target:self action:@selector(okClick)];
-    landBtn.backgroundColor=[UIColor colorWithRed:248/255.0f green:144/255.0f blue:34/255.0f alpha:1];
+    UIButton *landBtn=[self createButtonFrame:CGRectMake(10, bgView.frame.size.height+bgView.frame.origin.y+30,self.view.frame.size.width-20, 37) backImageName:nil title:@"Finish" titleColor:[UIColor whiteColor]  font:[UIFont systemFontOfSize:17] target:self action:@selector(okClick)];
+    landBtn.backgroundColor=[LayoutColor secondBlueColor];
     landBtn.layer.cornerRadius=5.0f;
     
     [bgView addSubview:passward];

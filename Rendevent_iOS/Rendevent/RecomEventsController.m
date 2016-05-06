@@ -142,7 +142,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (selectIndex.row == indexPath.row && selectIndex!=nil) {
         if (isOpen) {
-            return 180;
+            return 309;
         }
         return 100;
     }
@@ -160,20 +160,19 @@
             cell.titleLabel.text = event.name;
             cell.startLabel.text = [self stringFromDate:event.startTime];
             cell.endLabel.text = [self stringFromDate:event.endTime];
+//            cell.eventImg.frame =  CGRectMake(23, 50,self.view.frame.size.width, 148);
         }
         else{
             cell = (EventCell * )[tableView dequeueReusableCellWithIdentifier:@"EventCell"];
             cell.titleLabel.text = event.name;
             cell.startLabel.text = [self stringFromDate:event.startTime];
             cell.endLabel.text = [self stringFromDate:event.endTime];
-            cell.hostImg.image = [UIImage imageNamed:@"4"];
         }
     }else{
         cell = (EventCell * )[tableView dequeueReusableCellWithIdentifier:@"EventCell"];
         cell.titleLabel.text = event.name;
         cell.startLabel.text = [self stringFromDate:event.startTime];
         cell.endLabel.text = [self stringFromDate:event.endTime];
-        cell.hostImg.image = [UIImage imageNamed:@"4"];
     }
     return cell;
 }
