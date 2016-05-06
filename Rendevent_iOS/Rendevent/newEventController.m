@@ -45,6 +45,7 @@
   if ([self.startTimeField isFirstResponder])
   {
     self.startTimeField.text = [NSString stringWithFormat:@"%@", picker.date];
+    
   }
   if ([self.endTimeField isFirstResponder]) {
     self.endTimeField.text = [NSString stringWithFormat:@"%@", picker.date];
