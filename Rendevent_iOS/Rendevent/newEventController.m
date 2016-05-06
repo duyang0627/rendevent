@@ -10,67 +10,125 @@
 #import "Event.h"
 
 @interface newEventController()
-
-@property (strong, nonatomic) Event *newevent;
+//
+//@property (strong, nonatomic) Event *newevent;
+//@property (weak, nonatomic) IBOutlet UITextField *namefield;
+//@property (weak, nonatomic) IBOutlet UITextField *typeField;
+//@property (weak, nonatomic) IBOutlet UIDatePicker *startTimePicker;
+//@property (weak, nonatomic) IBOutlet UIDatePicker *endTimePicker;
+//
+//
+//@property (weak, nonatomic) IBOutlet UITextField *minNumberField;
+//@property (weak, nonatomic) IBOutlet UITextField *maxNumberField;
+//@property (weak, nonatomic) IBOutlet UITextField *minAgeField;
+//@property (weak, nonatomic) IBOutlet UITextField *maxAgeField;
+//@property (weak, nonatomic) IBOutlet UITextField *desField;
 
 @end
 @implementation newEventController
-/*
- 
- @property (nonatomic, copy) NSString *name;
- @property (nonatomic, assign) NSInteger category;
- @property (nonatomic, assign) NSUInteger event_Id;
- @property (nonatomic, copy) NSString *descrip;
- @property (nonatomic, copy) NSDate *startTime;
- @property (nonatomic, copy) NSDate *endTime;
- @property (nonatomic, retain) NSMutableArray *members;
- @property (nonatomic, assign) NSInteger minimum;
- @property (nonatomic, assign) NSInteger maximum;
- @property (nonatomic, assign) NSInteger mini_age;
- @property (nonatomic, assign) NSInteger max_age;
- @property (nonatomic, assign) NSUInteger host_Id;
- @property (nonatomic, assign) NSUInteger message_group_Id;
- @property (nonatomic, assign) EventStatus status;
- 
- Event *event = [[Event alloc]init];
- event.name = aName;
- event.category = aCategory;
- event.descrip = aDescription;
- event.startTime = aStartTime;
- event.endTime = aEndTime;
- event.members = [NSMutableArray arrayWithCapacity:6];
-*/
 
 - (void)viewDidLoad
 {
   self.newevent = [[Event alloc] init];
+  UIDatePicker *datePicker = [[UIDatePicker alloc] init];
+  datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+  [datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
+  NSTimeZone *timeZone=[NSTimeZone localTimeZone];
+  [datePicker setTimeZone:timeZone];
+  self.startTimeField.inputView = datePicker;
+  self.endTimeField.inputView = datePicker;
 }
+
+- (IBAction)dateChanged:(id)sender
+{
+  UIDatePicker *picker = (UIDatePicker *)sender;
+  if ([self.startTimeField isFirstResponder])
+  {
+    self.startTimeField.text = [NSString stringWithFormat:@"%@", picker.date];
+  }
+  if ([self.endTimeField isFirstResponder]) {
+    self.endTimeField.text = [NSString stringWithFormat:@"%@", picker.date];
+  }
+  
+}
+- (IBAction)doneEditing:(id)sender
+{
+  if ([self.startTimeField isFirstResponder])
+  {
+    [self.startTimeField resignFirstResponder];
+  }
+  if ([self.endTimeField isFirstResponder])
+  {
+    [self.endTimeField resignFirstResponder];
+  }
+  
+}
+
 - (IBAction)inputName:(UITextField *)sender {
   self.newevent.name = sender.text;
+  NSLog(@"现在name里面有%@", self.newevent.name );
 }
 - (IBAction)inputType:(UITextField *)sender {
   self.newevent.category = sender.text.integerValue;
+  NSLog(@"现在type里面有%ld",(long)self.newevent.category );
 }
-- (IBAction)inputDescription:(UITextField *)sender {
-  self.newevent.descrip = sender.text;
-}
+
 - (IBAction)inputStartTime:(UITextField *)sender {
-  self.newevent.startTime = sender.text;
+  self.newevent.startTime = [[NSDate alloc] init];
+
+  
 }
+
+
+- (IBAction)inputEndTime:(UITextField *)sender {
+  self.newevent.startTime = [[NSDate alloc] init];
+}
+
 
 - (IBAction)inputMinMembers:(UITextField *)sender {
   self.newevent.minimum = sender.text.integerValue;
+  NSLog(@"现在min members里面有%ld",(long)self.newevent.minimum );
 }
 - (IBAction)inputMaxMembers:(UITextField *)sender {
   self.newevent.maximum = sender.text.integerValue;
+    NSLog(@"现在max members里面有%ld",(long)self.newevent.maximum );
 }
 
 - (IBAction)inputMinAge:(UITextField *)sender {
   self.newevent.mini_age = sender.text.integerValue;
+    NSLog(@"现在min age里面有%ld",(long)self.newevent.mini_age );
 }
 - (IBAction)inputMaxAge:(UITextField *)sender {
   self.newevent.max_age = sender.text.integerValue;
+  NSLog(@"现在max age里面有%ld",(long) self.newevent.max_age);
+}
+- (IBAction)inputDescription:(UITextField *)sender {
+  self.newevent.descrip = sender.text;
+  NSLog(@"现在des里面有%@",self.newevent.descrip);
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+  
+  [textField resignFirstResponder];
+  return YES;
+  
+}  
+
+
+
+-(IBAction)backgroundTap:(id)sender
+{
+  [self.namefield resignFirstResponder];
+  [self.typeField resignFirstResponder];
+
+  [self.minNumberField resignFirstResponder];
+  [self.maxNumberField resignFirstResponder];
+  [self.minAgeField resignFirstResponder];
+  [self.maxAgeField resignFirstResponder];
+  [self.desField resignFirstResponder];
+
+ 
+}
 
 @end
