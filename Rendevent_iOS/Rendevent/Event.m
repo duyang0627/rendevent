@@ -14,7 +14,7 @@
     
     Event *event = [[Event alloc]init];
     event.name = aName;
-    event.category = aCategory;
+    event.categorye = aCategory;
     event.descrip = aDescription;
     event.startTime = aStartTime;
     event.endTime = aEndTime;
@@ -26,7 +26,7 @@
 - (void)encodeWithCoder:(NSCoder *)coder
 {
     [coder encodeObject:self.name forKey:@"name"];
-    [coder encodeInteger:self.category forKey:@"category"];
+    [coder encodeInteger:self.categorye forKey:@"category"];
     [coder encodeInteger:self.event_Id forKey:@"event_Id"];
     [coder encodeObject:self.descrip forKey:@"descrip"];
     [coder encodeObject:self.startTime forKey:@"startTime"];
@@ -45,7 +45,7 @@
 {
     self = [super init];
     if (self) {
-        self.category = [coder decodeIntegerForKey:@"category"];
+        self.categorye = [coder decodeIntegerForKey:@"category"];
         self.name = [coder decodeObjectForKey:@"name"];
         self.event_Id = [coder decodeIntegerForKey:@"event_Id"];
         self.descrip = [coder decodeObjectForKey:@"descrip"];

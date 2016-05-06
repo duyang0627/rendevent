@@ -7,6 +7,7 @@
 //
 
 #import "ContactViewController.h"
+#import "LayoutColor.h"
 
 @implementation ContactViewController
 
@@ -30,7 +31,7 @@
 }
 - (void)style {
     
-    color = [UIColor colorWithRed:24.0/255 green:75.0/255 blue:152.0/255 alpha:1];
+    color = [LayoutColor mainColor];
     //    self.navigationItem.titleView = self.searc
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];

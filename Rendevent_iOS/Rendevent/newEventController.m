@@ -69,8 +69,8 @@
   NSLog(@"现在name里面有%@", self.newevent.name );
 }
 - (IBAction)inputType:(UITextField *)sender {
-  self.newevent.category = sender.text.integerValue;
-  NSLog(@"现在type里面有%ld",(long)self.newevent.category );
+  self.newevent.categorye = sender.text.integerValue;
+  NSLog(@"现在type里面有%ld",(long)self.newevent.categorye );
 }
 
 - (IBAction)inputStartTime:(UITextField *)sender {

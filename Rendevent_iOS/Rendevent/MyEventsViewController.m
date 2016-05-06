@@ -63,7 +63,7 @@
 {
     NSMutableArray *newList = [NSMutableArray arrayWithCapacity:10];
     for (Event* e in eventsList) {
-        if(e.category == caIndex || caIndex == 0)
+        if(e.categorye == caIndex || caIndex == 0)
             [newList addObject:e];
     }
     return newList;

@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *eventImg;
 @property (weak, nonatomic) IBOutlet UIImageView *hostImg;
 @property (weak, nonatomic) IBOutlet UIButton *eventPic;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 
 @end

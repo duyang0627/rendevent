@@ -10,6 +10,7 @@
 #import "CarbonKit.h"
 #import "Event.h"
 #import "EventCell.h"
+#import "EventCellDetail.h"
 #import "VOSegmentedControl.h"
 
 @interface RecomEventsController ()
@@ -111,7 +112,7 @@
 {
     NSMutableArray *newList = [NSMutableArray arrayWithCapacity:10];
     for (Event* e in eventList) {
-        if(e.category == caIndex || caIndex == 0)
+        if(e.categorye == caIndex || caIndex == 0)
             [newList addObject:e];
     }
     return newList;
@@ -150,31 +151,68 @@
     
 }
 
+- (NSString *)getTypeName:(int)category {
+    switch (category) {
+        case 1:
+            return @"SPORT";
+            break;
+        case 2:
+            return @"ENTERTAIMNET";
+            break;
+        case 3:
+            return @"FOOD";
+            break;
+        case 4:
+            return @"OUTDOOR";
+            break;
+        case 5:
+            return @"STUDY";
+            break;
+        case 6:
+            return @"OTHER";
+            break;
+        default:
+            break;
+    }
+    return @"wrong type";
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    EventCell *cell;
+//    EventCell *cell;
     Event *event = [cureventsList objectAtIndex:indexPath.row];
     if(selectIndex.row == indexPath.row  && selectIndex != nil){
         if(isOpen){
-            cell = (EventCell * )[tableView dequeueReusableCellWithIdentifier:@"EventCellDetail"];
+            EventCellDetail *cell = (EventCellDetail * )[tableView dequeueReusableCellWithIdentifier:@"EventCellDetail"];
             cell.titleLabel.text = event.name;
             cell.startLabel.text = [self stringFromDate:event.startTime];
             cell.endLabel.text = [self stringFromDate:event.endTime];
 //            cell.eventImg.frame =  CGRectMake(23, 50,self.view.frame.size.width, 148);
+//            cell.eventPic.userInteractionEnabled = NO;
+            int index = arc4random()%17 + 1;
+            NSString *str=[NSString stringWithFormat:@"eventpic%d", index];
+            UIImage* img = [UIImage imageNamed:str];
+//            cell.typeLabel.text = [self getTypeName:[event.categorye intValue]];
+            cell.eventImg.image = img;
+            
+//            [cell.eventPic setImage:img forState:forState:UIControlStateNormal];
+            return cell;
         }
         else{
-            cell = (EventCell * )[tableView dequeueReusableCellWithIdentifier:@"EventCell"];
+            EventCell *cell = (EventCell * )[tableView dequeueReusableCellWithIdentifier:@"EventCell"];
             cell.titleLabel.text = event.name;
             cell.startLabel.text = [self stringFromDate:event.startTime];
             cell.endLabel.text = [self stringFromDate:event.endTime];
+            return cell;
         }
     }else{
-        cell = (EventCell * )[tableView dequeueReusableCellWithIdentifier:@"EventCell"];
+        EventCell *cell = (EventCell * )[tableView dequeueReusableCellWithIdentifier:@"EventCell"];
         cell.titleLabel.text = event.name;
         cell.startLabel.text = [self stringFromDate:event.startTime];
         cell.endLabel.text = [self stringFromDate:event.endTime];
+        return cell;
     }
-    return cell;
+    return NULL;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

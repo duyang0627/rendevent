@@ -47,6 +47,7 @@
 - (void)initialModalData {
     NSMutableArray *eventsList = [NSMutableArray arrayWithCapacity:10];
     
+    //sport
     Event *basketball = [Event initWithName:@"PlayBasketBall" WithCategory:1 WithDes:@"ARC Full court" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
     basketball.minimum = 5;
     basketball.maximum = 15;
@@ -62,10 +63,78 @@
     foottball.maximum = 22;
     foottball.mini_age = 22;
     foottball.max_age = 33;
-    foottball.host_Id = 0;
-    foottball.message_group_Id = 0;
+    foottball.host_Id = 1;
+    foottball.message_group_Id = 1;
     foottball.status = ParticipantNeeded;
     [eventsList addObject:foottball];
+    
+    //entertainment
+    Event *clubbing = [Event initWithName:@"DanceClub" WithCategory:2 WithDes:@"KetMoRee" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+    clubbing.minimum = 2;
+    clubbing.maximum = 2;
+    clubbing.mini_age = 21;
+    clubbing.max_age = 25;
+    clubbing.host_Id = 2;
+    clubbing.message_group_Id = 2;
+    clubbing.status = ParticipantNeeded;
+    [eventsList addObject:clubbing];
+    
+    //entertainment
+    Event *bowling = [Event initWithName:@"Bowling" WithCategory:2 WithDes:@"Memorial Union UC Davis" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+    bowling.minimum = 6;
+    bowling.maximum = 12;
+    bowling.mini_age = 0;
+    bowling.max_age = 0;
+    bowling.host_Id = 3;
+    bowling.message_group_Id = 3;
+    bowling.status = ParticipantNeeded;
+    [eventsList addObject:bowling];
+    
+    //food
+    Event *dining = [Event initWithName:@"Dining Together" WithCategory:3 WithDes:@"Seasons" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+    dining.minimum = 2;
+    dining.maximum = 4;
+    dining.mini_age = 18;
+    dining.max_age = 23;
+    dining.host_Id = 0;
+    dining.message_group_Id = 4;
+    dining.status = ParticipantNeeded;
+    [eventsList addObject:dining];
+    
+    //outdoor
+    Event *biking = [Event initWithName:@"Spring time! Biking near Lake Beryessa" WithCategory:4 WithDes:@"Lake Beryessa" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+    biking.minimum = 6;
+    biking.maximum = 0;
+    biking.mini_age = 0;
+    biking.max_age = 0;
+    biking.host_Id = 4;
+    biking.message_group_Id = 5;
+    biking.status = ParticipantNeeded;
+    [eventsList addObject:biking];
+    
+    
+    Event *hiking = [Event initWithName:@"Spring Break Yosemite Hiking" WithCategory:4 WithDes:@"Yosemite National Park" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+    hiking.minimum = 6;
+    hiking.maximum = 12;
+    hiking.mini_age = 17;
+    hiking.max_age = 30;
+    hiking.host_Id = 3;
+    hiking.message_group_Id = 6;
+    hiking.status = ParticipantNeeded;
+    [eventsList addObject:hiking];
+    
+    //study
+    Event *studying = [Event initWithName:@"ECS 150 Final Review" WithCategory:5 WithDes:@"Kemper Hall" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+    studying.minimum = 2;
+    studying.maximum = 10;
+    studying.mini_age = 0;
+    studying.max_age = 0;
+    studying.host_Id = 5;
+    studying.message_group_Id = 7;
+    studying.status = ParticipantNeeded;
+    [eventsList addObject:studying];
+    
+    
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
