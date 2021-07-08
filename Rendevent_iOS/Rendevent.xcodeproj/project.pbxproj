@@ -123,8 +123,8 @@
 		9DF3B7781CD7381600DFCF5C /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3B76D1CD7381600DFCF5C /* SDCycleScrollView.m */; };
 		9DF3B7791CD7381600DFCF5C /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3B76F1CD7381600DFCF5C /* UIView+SDExtension.m */; };
 		9DF3B77E1CD8582300DFCF5C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DF3B77D1CD8582300DFCF5C /* User.m */; };
+		C40DCF4B1CDB236B003D6231 /* newEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = C40DCF4A1CDB236A003D6231 /* newEventController.m */; };
 		C4F452D81CDAB44A0041B038 /* newEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F452D71CDAB44A0041B038 /* newEvent.m */; };
-		C4F452DB1CDAB5C80041B038 /* newEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F452DA1CDAB5C80041B038 /* newEventController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -355,10 +355,10 @@
 		9DF3B76F1CD7381600DFCF5C /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		9DF3B77C1CD8582300DFCF5C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		9DF3B77D1CD8582300DFCF5C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		C40DCF491CDB236A003D6231 /* newEventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newEventController.h; sourceTree = "<group>"; };
+		C40DCF4A1CDB236A003D6231 /* newEventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newEventController.m; sourceTree = "<group>"; };
 		C4F452D61CDAB44A0041B038 /* newEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newEvent.h; sourceTree = "<group>"; };
 		C4F452D71CDAB44A0041B038 /* newEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newEvent.m; sourceTree = "<group>"; };
-		C4F452D91CDAB5C80041B038 /* newEventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newEventController.h; sourceTree = "<group>"; };
-		C4F452DA1CDAB5C80041B038 /* newEventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newEventController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -634,12 +634,12 @@
 				9DEADF6C1CCEC5F1009FB7DF /* AppDelegate.h */,
 				9DEADF6D1CCEC5F1009FB7DF /* AppDelegate.m */,
 				9DEADF6F1CCEC5F1009FB7DF /* ViewController.h */,
+				C40DCF491CDB236A003D6231 /* newEventController.h */,
+				C40DCF4A1CDB236A003D6231 /* newEventController.m */,
 				9DEADF701CCEC5F1009FB7DF /* ViewController.m */,
 				9D71AE0A1CDB3A87002958A6 /* MainTabBar.h */,
 				9D71AE0B1CDB3A87002958A6 /* MainTabBar.m */,
 				9DEADF721CCEC5F1009FB7DF /* Main.storyboard */,
-				C4F452D91CDAB5C80041B038 /* newEventController.h */,
-				C4F452DA1CDAB5C80041B038 /* newEventController.m */,
 				9DEADF751CCEC5F1009FB7DF /* Assets.xcassets */,
 				9DEADF771CCEC5F1009FB7DF /* LaunchScreen.storyboard */,
 				9DEADF7A1CCEC5F1009FB7DF /* Info.plist */,
@@ -925,7 +925,7 @@
 				9D71AE371CDC3BF3002958A6 /* LWFlag.m in Sources */,
 				9D71ADDD1CD94660002958A6 /* CLPopViewController.m in Sources */,
 				9DF3B7731CD7381600DFCF5C /* TAAbstractDotView.m in Sources */,
-				C4F452DB1CDAB5C80041B038 /* newEventController.m in Sources */,
+				C40DCF4B1CDB236B003D6231 /* newEventController.m in Sources */,
 				9DF3B7511CD5C83D00DFCF5C /* MemberListView.m in Sources */,
 				9D71AE941CDC3C14002958A6 /* SDWebImagePrefetcher.m in Sources */,
 				9DF3B7251CCF362A00DFCF5C /* EventCell.m in Sources */,
@@ -1118,7 +1118,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Rendevent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liao.Rendevent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leo.Rendevent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1132,7 +1132,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Rendevent/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liao.Rendevent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leo.Rendevent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

@@ -10,6 +10,7 @@
 #import "CarbonKit.h"
 #import "MyEventsListTableViewController.h"
 #import "Event.h"
+#import "LayoutColor.h"
 
 @interface MyEventsViewController () <CarbonTabSwipeNavigationDelegate>
 {
@@ -32,17 +33,25 @@
     sectionNum = 0;
     
     //Initialize data
-    eventsList = [NSMutableArray arrayWithCapacity:10];
-    Event *basketball = [Event initWithName:@"PlayBasketBall" WithCategory:1 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:basketball];
-    Event *ktv = [Event initWithName:@"KTV" WithCategory:2 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:ktv];
-    Event *hunan = [Event initWithName:@"Hunan" WithCategory:3 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:hunan];
-    Event *hike = [Event initWithName:@"Hiking!" WithCategory:4 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:hike];
-    Event *football = [Event initWithName:@"PlayFootball" WithCategory:1 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
-    [eventsList addObject:football];
+//    eventsList = [NSMutableArray arrayWithCapacity:10];
+//    Event *basketball = [Event initWithName:@"PlayBasketBall" WithCategory:1 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+//    [eventsList addObject:basketball];
+//    Event *ktv = [Event initWithName:@"KTV" WithCategory:2 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+//    [eventsList addObject:ktv];
+//    Event *hunan = [Event initWithName:@"Hunan" WithCategory:3 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+//    [eventsList addObject:hunan];
+//    Event *hike = [Event initWithName:@"Hiking!" WithCategory:4 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+//    [eventsList addObject:hike];
+//    Event *football = [Event initWithName:@"PlayFootball" WithCategory:1 WithDes:@"" WithStartTime:[NSDate date] WithEndTime:[NSDate date]];
+//    [eventsList addObject:football];
+    
+    //unarchieve data
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"EventList.ldata"];
+    eventsList = [NSKeyedUnarchiver unarchiveObjectWithFile:appFile];
+    
+//    cureventsList = [self filteringEventList:eventsList withCategory:currentCategoryIndex];
     
     cureventsList = [self filteringEventList:eventsList withCategory:sectionNum];
 }
@@ -63,7 +72,7 @@
 {
     NSMutableArray *newList = [NSMutableArray arrayWithCapacity:10];
     for (Event* e in eventsList) {
-        if(e.category == caIndex || caIndex == 0)
+        if(e.categorye == caIndex || caIndex == 0)
             [newList addObject:e];
     }
     return newList;
@@ -71,12 +80,17 @@
 
 - (void)style {
     
-    UIColor *color = [UIColor colorWithRed:24.0/255 green:75.0/255 blue:152.0/255 alpha:1];
+    UIColor *color = [LayoutColor mainColor];
     //    self.navigationItem.titleView = self.searc
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = color;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    UIImage* myImage = [UIImage imageNamed:@"dahuangmao-6.png"];
+    UIImageView* imgView = [[UIImageView alloc] initWithImage:myImage];
+    CGFloat Height = self.navigationController.navigationBar.frame.size.height;
+    [imgView setFrame:CGRectMake(104.0f, imgView.frame.origin.y, Height, Height)];
+    [self.navigationController.navigationBar addSubview:imgView];
     
     carbonTabSwipeNavigation.toolbar.translucent = NO;
     [carbonTabSwipeNavigation setIndicatorColor:color];

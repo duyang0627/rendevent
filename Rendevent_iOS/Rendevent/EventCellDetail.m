@@ -10,4 +10,6 @@
 
 @implementation EventCellDetail
 
+
+
 @end

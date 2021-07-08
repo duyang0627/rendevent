@@ -19,7 +19,7 @@ typedef enum : NSInteger {
 } EventStatus;
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, assign) NSInteger category;
+@property (nonatomic, assign) NSInteger categorye;
 @property (nonatomic, assign) NSUInteger event_Id;
 @property (nonatomic, copy) NSString *descrip;
 @property (nonatomic, copy) NSDate *startTime;
